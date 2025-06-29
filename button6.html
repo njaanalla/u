@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button 6 - SQL Operations</title>
+    <style>
+        body {
+            background-color: black;
+        }
+        .code-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #000000;
+            padding: 10px;
+            border: 1px solid #1b1b1b;
+            margin: 10px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .copy-button {
+            cursor: pointer;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+        }
+        .back-button {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #313131;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            width: fit-content;
+        }
+        span,p {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+        <p><strong>6. Create a table product with the fields (Product_code primary key. Product_Name, Category, Quantity, Price).Insert some records Write the queries to perform the following.</strong></p>
+        <hr>
+        <p><strong>A.</strong> Display the records in the descending order of Product_Name</p>
+        <p><strong>B.</strong> Display Product_Code, Product_Name with price between 20 and 50</p>
+        <p><strong>C.</strong> Display the details of products which belongs to the categories of 'bath soap'. 'paste', or 'washing powder'</p>
+        <p><strong>D.</strong> Display the products whose Quantity less than 100 or greater than 500</p>
+        <p><strong>E.</strong> Display the products whose names starts with 's'</p>
+        <p><strong>F.</strong> Display the products which not belongs to the category 'paste'</p>
+        <p><strong>G.</strong> Display the products whose second letter is 'u' and belongs to the Category 'washing powder'</p>
+    
+
+
+
+
+
+
+<div class="code-box" onclick="copyText(this)">
+    <span>create table product(product_code int primary key, product_name varchar(20),category varchar(20), quantity int,price numeric(10,2));</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into product values(1,'colgate','paste',10,100);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into product values(2,'close up','paste',9,90);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into product values(3,'nirma','bath soap',10,600);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into product values(4,'sunlight','washing powder',10,700);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into product values(5,'toy','car',1,200);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into product values(6,'toy','bike',3,300);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into product values(7,'lux','bath soap',1,20);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into product values(8,'lux','bath liquid',600,2000);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into product values(9,'nirma','bath liquid',300,1000);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>select * from product;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>select * from product order by product_name desc;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>select product_code,product_name from product where price between 20 and 50;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>select product_name,price from product where category in ('bath soap','paste','washing powder');</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>select * from product where quantity<100 or quantity>500;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>select product_name from product where product_name like 's%';</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>select product_name from product where category != 'paste';</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>select product_name from product where product_name like '_u%' and category='washing powder';</span>
+    </div>
+    
+    
+
+
+
+    
+
+
+    <a href="index.html" class="back-button">Back to Home</a>
+    
+<script>
+    function copyText(box) {
+        let span = box.querySelector("span");
+        let text = span.innerText.replace("", ""); // Remove existing "Copied" if already added
+        navigator.clipboard.writeText(text).then(() => {
+            span.innerText = text + ""; // Add once
+            span.style.color = "#28a745"; // Optional: Change color
+        });
+    }
+</script>
+
+
+</body>
+</html>

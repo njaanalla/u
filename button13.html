@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button 13 - SQL Operations</title>
+    <style>
+        body {
+            background-color: black;
+        }
+        .code-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #000000;
+            padding: 10px;
+            border: 1px solid #1b1b1b;
+            margin: 10px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .copy-button {
+            cursor: pointer;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+        }
+        .back-button {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #313131;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            width: fit-content;
+        }
+        span,p {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+        <p><strong>13. Create two tables Book (BookID, BookName, Author, Publisher) and Book_Del
+(Date_of_Del, BookID, BookName)<br>Create and application to generate a trigger before deleting a record from book table. The
+trigger procedure should insert the deleted BookID and BookName along with current date
+to the table Book_Del.</strong></p>
+
+
+
+    
+
+
+
+
+
+
+
+<div class="code-box" onclick="copyText(this)">
+    <span>create table book(bookid int primary key, bookname varchar(15), author varchar(15), publisher varchar(15));</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>create table book_del(del_date date, bookid int, bookname varchar(15));</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into book values(1, 'aadujeevitham', 'benyamin', 'dc books');</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into book values(2, 'the white tiger', 'aravind', 'xyz publication');</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into book values(3, 'mathilukal', 'basheer', 'abc books');</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into book values(4, 'azadi', 'arunthadi roy', 'new books');</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into book values(5, '2 states', 'chethan bhagath', 'sr publication');</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>select * from book;</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>create or replace function triggerfun() returns trigger as $$</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>begin</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into book_del values (current_date, old.bookid, old.bookname);</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>return new;</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>end;</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>$$ language plpgsql;</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>create trigger trig after delete on book for each row execute procedure triggerfun();</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>delete from book where bookid<=2;</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>select * from book_del;</span>
+    </div>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+    <a href="index.html" class="back-button">Back to Home</a>
+    
+<script>
+    function copyText(box) {
+        let span = box.querySelector("span");
+        let text = span.innerText.replace("", ""); // Remove existing "Copied" if already added
+        navigator.clipboard.writeText(text).then(() => {
+            span.innerText = text + ""; // Add once
+            span.style.color = "#28a745"; // Optional: Change color
+        });
+    }
+</script>
+
+
+</body>
+</html>

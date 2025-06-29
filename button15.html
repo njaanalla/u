@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button 15 - SQL Operations</title>
+    <style>
+        body {
+            background-color: black;
+        }
+        .code-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #000000;
+            padding: 10px;
+            border: 1px solid #1b1b1b;
+            margin: 10px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .copy-button {
+            cursor: pointer;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+        }
+        .back-button {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #313131;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            width: fit-content;
+        }
+        span,p {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+        <p><strong>15. Create a table fact_table with 2 columns num and factorial_of_num and write a function to
+insert factorial of numbers from 0 to N</strong></p>
+   
+
+
+
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>create table fact_table(num int, factorial numeric(15));</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>create or replace function fact(n int) returns void as $$</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>declare</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>i int;</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>x int;</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>f numeric(15);</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>begin</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>truncate fact_table;</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into fact_table values(0, 1);</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>for i in 1..n</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>loop</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>f:=1;</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>x:=i;</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>while x>0</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>loop</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>f:=x*f;</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>x:=x-1;</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>end loop;</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into fact_table values(i, f);</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>end loop;</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>end;</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>$$ language plpgsql;</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>select fact(10);</span>
+    </div>
+    
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>select * from fact_table;</span>
+    </div>
+    
+    
+
+
+
+
+
+
+
+    <a href="index.html" class="back-button">Back to Home</a>
+    
+<script>
+    function copyText(box) {
+        let span = box.querySelector("span");
+        let text = span.innerText.replace("", ""); // Remove existing "Copied" if already added
+        navigator.clipboard.writeText(text).then(() => {
+            span.innerText = text + ""; // Add once
+            span.style.color = "#28a745"; // Optional: Change color
+        });
+    }
+</script>
+
+
+</body>
+</html>

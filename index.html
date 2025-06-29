@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover Buttons</title>
+    <style>
+body {
+    margin: 0;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #000000;
+    min-height: 100vh;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+        .btn {
+            width: 300px;
+            height: 50px;
+            background-color: #141414;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        p {
+           color: #ffffff;
+        }
+.hover-content {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    color: white;
+    padding: 40px;
+    box-sizing: border-box;
+    z-index: 9999;
+    overflow-y: auto;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <button class="btn" id="clearAllBtn" onclick="copyClearAll()">Clear All</button>
+ <br>   <div class="button-container">
+        <button class="btn" id="btn1">1</button>
+        <button class="btn" id="btn2">2</button>
+        <button class="btn" id="btn3">3</button>
+        <button class="btn" id="btn4">4</button>
+        <button class="btn" id="btn5">5</button>
+        <button class="btn" id="btn6">6</button>
+        <button class="btn" id="btn7">7</button>
+        <button class="btn" id="btn8">8</button>
+        <button class="btn" id="btn9">9</button>
+        <button class="btn" id="btn10">10</button>
+        <button class="btn" id="btn11">11</button>
+        <button class="btn" id="btn12">12</button>
+        <button class="btn" id="btn13">13</button>
+        <button class="btn" id="btn14">14</button>
+        <button class="btn" id="btn15">15</button>
+    </div>
+    
+<div class="hover-content" id="hoverContent1" onclick="handleHoverClick1()">
+
+        <p><strong>1. Create a table customer (cust_no varchar (5), cust_name varchar (15), age number, phone varchar (10))
+        </strong></p>
+        <hr>
+        <p><strong>a)</strong> Insert 5 records and display it</p>
+        <p><strong>b)</strong> Add new field d_birth with date datatype</p>
+        <p><strong>c)</strong> Create another table cust_phone with fields cust_name and phone from customer table</p>
+        <p><strong>d)</strong> Remove the field age</p>
+        <p><strong>e)</strong> Change the size of the cust_name to 25</p>
+        <p><strong>f)</strong> Delete all the records from the table</p>
+        <p><strong>g)</strong> Rename the table customer to cust</p>
+        <p><strong>h)</strong> Drop the table</p>
+    </div>
+    
+<div class="hover-content" id="hoverContent2" onclick="handleHoverClick2()">
+        <p><strong>2. Create a table sale_man (salesman_no primary key, s_name not null, place,phone unique)</strong></p>
+        <hr>
+        <p><strong>Create table sales_order (order_no primary key<br>order_date not null<br>salesman_no foreign key references salesman_no in sales_man<br>del_type values should be either P or F (check constraints)<br>order_status values should be 'Inprocess', 'Fullfilled', 'Backorder', 'Cancelled' (check constraints))</strong></p>
+        <hr>
+        <p><strong>a)</strong> Insert few records in both tables</p>
+        <p><strong>b)</strong> Delete primary key from sales_man table</p>
+        <p><strong>c)</strong> Delete Foreign key and Check constraints from sales_order table</p>
+        <p><strong>d)</strong> Add primary key in sales_man using ALTER TABLE</p>
+        <p><strong>e)</strong> Add foreign key and CHECK constraints in sales order table using ALTER TABLE</p>
+    </div>
+    
+<div class="hover-content" id="hoverContent3" onclick="handleHoverClick3()">
+        <p><strong>3. Create a table Hospital with the fields (doctorid,doctormame,department,qualification,experience). Write the queries to perform the following.</strong></p>
+        <hr>
+        <p><strong>a)</strong> Insert 5 records</p>
+        <p><strong>b)</strong> Display the details of Doctors</p>
+        <p><strong>c)</strong> Display the details of doctors who have the qualification 'MD'</p>
+        <p><strong>d)</strong> Display all doctors who have more than 5 years experience but do not have the qualification 'MD'</p>
+        <p><strong>e)</strong> Display the doctors in 'Skin' department</p>
+        <p><strong>f)</strong> Update the experience of doctor with doctorid='D003' to 5</p>
+        <p><strong>g)</strong> Delete the doctor with doctorID='D005'</p>
+    </div>
+    
+<div class="hover-content" id="hoverContent4" onclick="handleHoverClick4()">
+        <p><strong>4. Create the following tables Bank_customer (accno primary key, cust_name, place) Deposit (accno foreign key, deposit_no, damount) Loan (accno foreign key loan_no, Lamount)<br>Write the following queries</strong></p>
+        <hr>
+        <p><strong>a)</strong> Display the details of the customers</p>
+        <p><strong>b)</strong> Display the customers along with deposit amount who have only deposit with the bank</p>
+        <p><strong>c)</strong> Display the customers along with loan amount who have only loan with the bank</p>
+        <p><strong>d)</strong> Display the customers they have both loan and deposit with the bank</p>
+        <p><strong>e)</strong> Display the customer who have neither a loan nor a deposit with the bank</p>
+    </div>
+    
+<div class="hover-content" id="hoverContent5" onclick="handleHoverClick5()">
+        <p><strong>5. Create a table employee with fields (EmpID, EName, Salary, Department, and Age). Insert some records. Write SQL queries using aggregate functions and group by clause</strong></p>
+        <hr>
+        <p><strong>A.</strong> Display the total number of employees.</p>
+        <p><strong>B.</strong> Display the name and age of the oldest employee of each department.</p>
+        <p><strong>C.</strong> Display the average age of employees of each department.</p>
+        <p><strong>D.</strong> Display departments and the average salaries.</p>
+        <p><strong>E.</strong> Display the lowest salary in employee table.</p>
+        <p><strong>F.</strong> Display the number of employees working in purchase department.</p>
+        <p><strong>G.</strong> Display the highest salary in sales department.</p>
+        <p><strong>H.</strong> Display the difference between highest and lowest salary.</p>
+    </div>
+    
+
+
+
+
+<div class="hover-content" id="hoverContent6" onclick="handleHoverClick6()">
+        <p><strong>6. Create a table product with the fields (Product_code primary key. Product_Name, Category, Quantity, Price).Insert some records Write the queries to perform the following.</strong></p>
+        <hr>
+        <p><strong>A.</strong> Display the records in the descending order of Product_Name</p>
+        <p><strong>B.</strong> Display Product_Code, Product_Name with price between 20 and 50</p>
+        <p><strong>C.</strong> Display the details of products which belongs to the categories of 'bath soap'. 'paste', or 'washing powder'</p>
+        <p><strong>D.</strong> Display the products whose Quantity less than 100 or greater than 500</p>
+        <p><strong>E.</strong> Display the products whose names starts with 's'</p>
+        <p><strong>F.</strong> Display the products which not belongs to the category 'paste'</p>
+        <p><strong>G.</strong> Display the products whose second letter is 'u' and belongs to the Category 'washing powder'</p>
+    </div>
+    
+
+
+<div class="hover-content" id="hoverContent7" onclick="handleHoverClick7()">
+        <p><strong>7. Consider the employee database given below. Give an expression in SQL for each of the following queries:<br>EMPLOYEE (Employee-Name, City)<br>WORKS (Employee-Name, Company-Name, Salary)<br>COMPANY (Company-Name, City)<br>MANAGES (Employee-Name, Manager-Name)</strong></p>
+        <hr>
+        <p><strong>A.</strong> Find the names of all employees who work in Infosys</p>
+        <p><strong>B.</strong> Find the names and cities of residence of all employees who works in Wipro</p>
+        <p><strong>C.</strong> Find the names, and cities of all employees who work in Infosys and earn more than Rs. 10.000.</p>
+        <p><strong>D.</strong> Find the employees who live in the same cities as the companies for which they work.</p>
+        <p><strong>E.</strong> Find all employees who do not work in Wipro Corporation.</p>
+        <p><strong>F.</strong> Find the company that has the most employees.</p>
+    </div>
+    
+
+
+<div class="hover-content" id="hoverContent8" onclick="handleHoverClick8()">
+        <p><strong>8. Write a program code to calculate the area of a circle for a value of radius varying from 3 to 7. Store the radius and the corresponding value of calculated area in an empty table named areas with field's radius and area.</strong></p>
+    </div>
+    
+
+
+<div class="hover-content" id="hoverContent9" onclick="handleHoverClick9()">
+        <p><strong>9. Write a program block to calculate the electricity bill by accepting cust_no and units_consumed</strong></p>
+    </div>
+    
+
+
+<div class="hover-content" id="hoverContent10" onclick="handleHoverClick10()">
+        <p><strong>10. Create a procedure to print Fibonacci number up to a limit, limit is passed as an ardument</strong></p>
+    </div>
+
+
+<div class="hover-content" id="hoverContent11" onclick="handleHoverClick11()">
+        <p><strong>11. Create a function to check whether a given number is prime or not</strong></p>
+    </div>
+    
+
+
+<div class="hover-content" id="hoverContent12" onclick="handleHoverClick12()">
+        <p><strong>12. create a table emp_salary(empno,enamedept,salary)<br>Write a function to return the average salary of a particular department by accepting ddepartmentname as argument.</strong></p>
+    </div>
+    
+
+
+<div class="hover-content" id="hoverContent13" onclick="handleHoverClick13()">
+        <p><strong>13. Create two tables Book (BookID, BookName, Author, Publisher) and Book_Del
+(Date_of_Del, BookID, BookName)<br>Create and application to generate a trigger before deleting a record from book table. The
+trigger procedure should insert the deleted BookID and BookName along with current date
+to the table Book_Del.</strong></p>
+    </div>
+    
+
+
+<div class="hover-content" id="hoverContent14" onclick="handleHoverClick14()">
+        <p><strong>14. create a table student( regno, name, paper1, paper2, paper3, paper4, paper5, total, grade,
+result), insert 5 records and create a procedure to update total as the sum of paper1, paper2,
+paper3, paper4 and paper5, result</strong></p>
+    </div>
+    
+
+
+<div class="hover-content" id="hoverContent15" onclick="handleHoverClick15()">
+        <p><strong>15. Create a table fact_table with 2 columns num and factorial_of_num and write a function to
+insert factorial of numbers from 0 to N</strong></p>
+    </div>
+    
+
+
+
+
+
+
+
+
+<script>
+    function addHoverEffect(buttonId, contentId) {
+        let button = document.getElementById(buttonId);
+        let content = document.getElementById(contentId);
+        
+        button.addEventListener("mouseenter", () => {
+            content.style.display = "block";
+        });
+        
+        button.addEventListener("mouseleave", () => {
+            content.style.display = "none";
+        });
+    }
+
+    // Hover setup
+    addHoverEffect("btn1", "hoverContent1");
+    addHoverEffect("btn2", "hoverContent2");
+    addHoverEffect("btn3", "hoverContent3");
+    addHoverEffect("btn4", "hoverContent4");
+    addHoverEffect("btn5", "hoverContent5");
+    addHoverEffect("btn6", "hoverContent6");
+    addHoverEffect("btn7", "hoverContent7");
+    addHoverEffect("btn8", "hoverContent8");
+    addHoverEffect("btn9", "hoverContent9");
+    addHoverEffect("btn10", "hoverContent10");
+    addHoverEffect("btn11", "hoverContent11");
+    addHoverEffect("btn12", "hoverContent12");
+    addHoverEffect("btn13", "hoverContent13");
+    addHoverEffect("btn14", "hoverContent14");
+    addHoverEffect("btn15", "hoverContent15");
+    
+
+    // Clear All button functionality
+    function copyClearAll() {
+        const sql = `DO $$ DECLARE
+    r RECORD;
+BEGIN
+    FOR r IN (SELECT tablename FROM pg_tables WHERE schemaname = 'public') LOOP
+        EXECUTE 'DROP TABLE IF EXISTS public.' || quote_ident(r.tablename) || ' CASCADE';
+    END LOOP;
+END $$;
+`;
+
+        navigator.clipboard.writeText(sql).then(() => {
+            document.getElementById("clearAllBtn").style.backgroundColor = "#202020";
+        });
+    }
+
+    // General copy + redirect function
+    function copyAndRedirect(text, link) {
+        navigator.clipboard.writeText(text).then(() => {
+            window.location.href = link;
+        });
+    }
+
+    // Button 1 full query
+    function handleHoverClick1() {
+        const sql = `
+create table customer(cust_no varchar(5),cust_name varchar(15),age numeric,phone varchar(10));
+\\d customer;
+insert into customer values (1,'Raju',23,7418529638);
+insert into customer values (2,'Radha',1597538526);
+insert into customer values (3,'Zara',23,7419874563);
+insert into customer values (4,'Adam',25,7485963285);
+insert into customer values (5,'John',22,7418529518);
+select * from customer;
+alter table customer add d_birth date;
+\\d customer;
+create table cust_phone as select cust_name,phone from customer;
+select * from cust_phone;
+alter table customer drop age;
+ALTER TABLE customer ALTER COLUMN cust_name TYPE varchar(25);
+TRUNCATE customer;
+ALTER TABLE customer RENAME TO cust;
+\\d cust;
+drop table cust;
+`;
+
+        copyAndRedirect(sql, 'button1.html');
+    }
+
+
+
+
+
+    function handleHoverClick2() {
+        const sql = `
+create table sales_man (salesman_no int primary key,s_name varchar(10) not null,place varchar(10),phone numeric(10) unique);
+\\d sales_man;
+create table sales_order (order_no int primary key,order_date date NOT NULL,order_status char(10) NOT NULL check (order_status IN ('Inprocess','Fullfilled','Cancelled','Backorder')), salesman_no int references sales_man (salesman_no),del_type char(1) check (del_type='F' or del_type='P'));
+\\d sales_order;
+insert into sales_man (salesman_no,s_name,place,phone) values (101,'arun','idukki',7418749563);
+insert into sales_man values (102,'arun','munnar',7418529515);
+insert into sales_man values (103,'varun','kollam',3574128596);
+insert into sales_man values (104,'antony','edakkulam',7533578528);
+insert into sales_man values (105,'ajay','alappuzha',7418529518);
+select * from sales_man;
+insert into sales_order values(1,'01-01-17','Inprocess',101,'F'),(2,'03-02-17','Fullfilled',102,'F'),(3,'03-03-17','Fullfilled',103,'P'),(4,'03-03-17','Cancelled',104,'F'),(5,'05-03-17','Backorder',105,'P');
+select * from sales_order;
+ALTER TABLE sales_order DROP constraint sales_order_salesman_no_fkey;
+ALTER TABLE sales_man DROP constraint sales_man_pkey;
+\\d sales_man;
+ALTER TABLE sales_order DROP constraint sales_order_del_type_check;
+ALTER TABLE sales_order DROP constraint sales_order_order_status_check;
+\\d sales_order;
+ALTER TABLE sales_man ADD primary key (salesman_no);
+\\d sales_man
+ALTER TABLE sales_order ADD FOREIGN KEY (salesman_no) REFERENCES sales_man (salesman_no);
+ALTER TABLE sales_order ADD CHECK (del_type='F' OR del_type='P');
+ALTER TABLE sales_order ADD check (order_status IN ('Inprocess','Fullfilled','Cancelled','Backorder'));
+\\d sales_order;
+`;
+            copyAndRedirect(sql, 'button2.html');
+    }
+
+
+
+       function handleHoverClick3() {
+        const sql = `
+create table hospital (doctorid char(4),doctorname varchar(10),department varchar(25),qualification varchar(25),experience int);
+\\d hospital;
+insert into hospital values('D001','miya','cardiologist','mbbs',5);
+insert into hospital values('D002','john','orthologist','md',4);
+insert into hospital values('D003','ramesh','skin','mbbs',3);
+insert into hospital values('D004','madona','dentist','bds',6);
+insert into hospital values('D005','manoj','optometry','md',1);
+select * from hospital;
+select doctorname from hospital where qualification='md';
+select doctorname from hospital where experience>5 and qualification!='md';
+select doctorname from hospital where department='skin';
+update hospital set experience=5 where doctorid='D003';
+select * from hospital;
+delete from hospital where doctorid='D005';
+select * from hospital;
+`;
+            copyAndRedirect(sql, 'button3.html');
+    }
+
+
+
+       function handleHoverClick4() {
+        const sql = `
+create table Bank_customer (accno int primary key,cust_name varchar(25),place varchar(25));
+create table Deposit (accno int references Bank_customer(accno),deposit_no int,damount numeric);
+create table loan (accno int references bank_customer(accno),loan_no int,lamount numeric);
+insert into bank_customer values (101,'Ravi','clt');
+insert into bank_customer values (102,'Adam','tvm');
+insert into bank_customer values (103,'Aysha','mlprm');
+insert into bank_customer values (104,'Lisa','knr');
+insert into bank_customer values (105,'Shaju','klm');
+insert into bank_customer values (106,'Razeen','kch');
+insert into bank_customer values (107,'Radha','tvm');
+insert into bank_customer values (108,'jose','knr');
+insert into deposit values (101,15,400000);
+insert into deposit values (102,13,75000);
+insert into deposit values (108,16,750000);
+insert into loan values (103,4,500000);
+insert into loan values (104,2,200000);
+insert into loan values (106,6,300000);
+insert into loan values (108,8,600000);
+select * from bank_customer;
+select b.accno,cust_name,damount from bank_customer b join deposit d on b.accno=d.accno where b.accno not in (select accno from loan);
+select b.accno,cust_name,lamount from bank_customer b join loan l on b.accno=l.accno where b.accno not in (select accno from deposit);
+select cust_name from bank_customer where accno in ((select accno from loan)intersect(select accno from deposit));
+select cust_name from bank_customer where accno not in ((select accno from loan)union(select accno from deposit));
+`;
+            copyAndRedirect(sql, 'button4.html');
+    }
+
+
+
+       function handleHoverClick5() {
+        const sql = `
+create table employee (empid int PRIMARY KEY,ename varchar(10),salary numeric,department varchar(20),age int);
+insert into employee values (101,'Adam',20000,'Purchase',25),(102,'Lisa',15000,'Sales',45),(103,'Arun',18000,'Sales',34),(104,'Aysha',25000,'Purchase',25),(105,'Sheeja',30000,'Finance',36),(106,'Sagar',28000,'Finance',42);
+select * from employee;
+select count(empid)from employee;
+select ename,department from employee where age in (select max(age) from employee group by department);
+select department,avg(age)from employee group by department;
+select department,avg(salary)from employee group by department;
+select min(salary) as min_salary from employee;
+select count(ename) from employee where department='Purchase';
+select max(salary)from employee where department='Sales';
+select max(salary)-min(salary) as sal_difference from employee;
+`;
+            copyAndRedirect(sql, 'button5.html');
+    }
+
+
+
+
+       function handleHoverClick6() {
+        const sql = `
+create table product(product_code int primary key, product_name varchar(20),category varchar(20), quantity int,price numeric(10,2));
+insert into product values(1,'colgate','paste',10,100);
+insert into product values(2,'close up','paste',9,90);
+insert into product values(3,'nirma','bath soap',10,600);
+insert into product values(4,'sunlight','washing powder',10,700);
+insert into product values(5,'toy','car',1,200);
+insert into product values(6,'toy','bike',3,300);
+insert into product values(7,'lux','bath soap',1,20);
+insert into product values(8,'lux','bath liquid',600,2000);
+insert into product values(9,'nirma','bath liquid',300,1000);
+select * from product;
+select * from product order by product_name desc;
+select product_code,product_name from product where price between 20 and 50;
+select product_name,price from product where category in ('bath soap','paste','washing powder');
+select * from product where quantity<100 or quantity>500;
+select product_name from product where product_name like 's%';
+select product_name from product where category != 'paste';
+select product_name from product where product_name like '_u%' and category='washing powder';
+`;
+            copyAndRedirect(sql, 'button6.html');
+    }
+
+
+       function handleHoverClick7() {
+        const sql = `
+create table employee(empname varchar(10) primary key,city varchar(10));
+create table company(company_name varchar(10) primary key ,city varchar(10));
+create table works(empname varchar(10) primary key references employee(empname),cname varchar(10) references company(company_name),salary int);
+create table manages(empname varchar(10) references employee(empname),manager_name varchar(10) references employee(empname),primary key(empname,manager_name));
+insert into employee values('swathi','kzkd');
+insert into employee values('vishnu','tvm');
+insert into employee values('shreya','usa');
+insert into employee values('adam','dubai');
+insert into employee values('sajid','malappuram');
+insert into company values('infosys','tvm');
+insert into company values('chandrika','trissur');
+insert into company values('wipro','kochi');
+insert into company values('tata','mumbai');
+insert into company values('bajaj','delhi');
+insert into works values('swathi','infosys',10000);
+insert into works values('vishnu','infosys',15000);
+insert into works values('shreya','wipro',71502);
+insert into works values('adam','infosys',8000);
+insert into works values('sajid','wipro',18000);
+insert into manages values('swathi','adam');
+insert into manages values('vishnu','adam');
+insert into manages values('sajid','shreya');
+select empname from works where cname='infosys';
+select employee.empname,employee.city from employee,works where employee.empname=works.empname and works.cname='wipro';
+select employee.empname,city from employee,works where employee.empname=works.empname and cname='infosys' and salary>10000;
+select employee.empname from employee,works,company where employee.empname = works.empname and employee.city = company.city and works.cname = company.company_name;
+select empname from works where cname!='wipro';
+select cname from works group by cname order by count(*) desc limit 1;
+`;
+            copyAndRedirect(sql, 'button7.html');
+    }
+
+
+       function handleHoverClick8() {
+        const sql = `
+do $$
+declare
+r integer;
+ar numeric(10,2);
+pi constant float:=3.14;
+begin
+create table areas(radius integer,area numeric);
+r:=3;
+while r<=7
+loop
+ar:=pi*power(r,2);
+insert into areas values(r,ar);
+r:=r+1;
+end loop;
+end $$;
+select * from areas;
+`;
+            copyAndRedirect(sql, 'button8.html');
+    }
+
+
+       function handleHoverClick9() {
+        const sql = `
+create table elec_bill (cust_no int, cust_name varchar(15), units_consumed int, bill_amt int);
+insert into elec_bill values(101, 'Adam', 200), (102, 'Lisa', 550), (103, 'Arun', 95), (104,'Aysha', 430), (105, 'Sheeja', 350);
+do $$
+declare
+rate int;
+rec record;
+curs1 cursor for select * from Elec_Bill;
+begin
+open curs1;
+loop
+fetch curs1 into rec;
+exit when not found;
+if rec.units_consumed<=100 then
+rate:=3;
+elsif rec.units_consumed<=250 then
+rate:=4;
+elsif rec.units_consumed<=500 then
+rate:=5;
+else
+rate:=6;
+end if;
+update elec_bill set bill_amt=rate*rec.units_consumed where cust_no=rec.cust_no;
+end loop;
+close curs1;
+end;
+$$ language plpgsql;
+Select * from elec_bill;
+`;
+            copyAndRedirect(sql, 'button9.html');
+    }
+
+
+       function handleHoverClick10() {
+        const sql = `
+create or replace function fibonacci(n int) returns setof int as $$ declare
+a int:=1;
+b int:=0;
+c int:=0;
+begin
+loop
+exit when n < c;
+return next c;
+c:=a+b;
+a:=b;
+b:=c;
+end loop;
+end;
+$$ language plpgsql;
+select fibonacci(8);
+`;
+            copyAndRedirect(sql, 'button10.html');
+    }
+
+
+       function handleHoverClick11() {
+        const sql = `
+CREATE FUNCTION check_prime(n int) returns varchar(25) AS $$ DECLARE
+i int;
+BEGIN
+if n<2 then
+return n || ' is not a prime number ';
+end if;
+for i in 2..n/2
+loop
+if mod(n,i)=0 then
+return n || ' is not a prime number ';
+end if;
+end loop;
+return n || ' is a prime number ';
+end;
+$$ language plpgsql;
+Select check_prime(1);
+Select check_prime(7);
+`;
+            copyAndRedirect(sql, 'button11.html');
+    }
+
+
+       function handleHoverClick12() {
+        const sql = `
+Create table emp_salary(empno int, ename varchar(15), dept varchar(15), salary int);
+Insert into emp_salary values(101, 'Adam', 'Production', 20000), (102, 'Lisa', 'Marketing', 15000), (103, 'Arun', 'Marketing', 18000), (104, 'Aysha', 'Production', 25000), (105, 'Sheeja', 'Finance', 30000), (106, 'Sagar', 'Finance', 28000);
+Select * from emp_salary;
+create function avg_salary(dept_name varchar(10)) returns numeric(10,2) as $$ declare
+avg_sal numeric(10,2);
+begin
+select avg(salary) into avg_sal from emp_salary group by dept having dept=dept_name;
+return avg_sal;
+end;
+$$ language plpgsql;
+Select avg_salary('Production');
+Select avg_salary('Finance');
+`;
+            copyAndRedirect(sql, 'button12.html');
+    }
+
+
+       function handleHoverClick13() {
+        const sql = `
+create table book(bookid int primary key, bookname varchar(15), author varchar(15), publisher varchar(15));
+create table book_del(del_date date, bookid int, bookname varchar(15));
+insert into book values(1, 'aadujeevitham', 'benyamin', 'dc books');
+insert into book values(2, 'the white tiger', 'aravind', 'xyz publication');
+insert into book values(3, 'mathilukal', 'basheer', 'abc books');
+insert into book values(4, 'azadi', 'arunthadi roy', 'new books');
+insert into book values(5, '2 states', 'chethan bhagath', 'sr publication');
+select * from book;
+create or replace function triggerfun() returns trigger as $$
+begin
+insert into book_del values (current_date, old.bookid, old.bookname);
+return new;
+end;
+$$ language plpgsql;
+create trigger trig after delete on book for each row execute procedure triggerfun();
+delete from book where bookid<=2;
+select * from book_del;
+`;
+            copyAndRedirect(sql, 'button13.html');
+    }
+
+
+       function handleHoverClick14() {
+        const sql = `
+Create table student(regno char(5), name varchar(15), paper1 numeric(3), paper2 numeric(3), paper3 numeric(3), paper4 numeric(3), total numeric(3), avg_score numeric(3,2), grade char(7));
+insert into student values ('s101','adam',23,45,67,23), ('s102', ' sheena', 96,97,89,95), ('s103', 'bobby', 67,52,83,91), ('s104', 'radha', 34,54,23,12), ('s105', 'zara', 86,76,82,85);
+update student set total = paper1+paper2+paper3+paper4;
+do $$
+declare
+rec student%rowtype;
+curs1 cursor for select * from student;
+begin
+open curs1;
+loop
+fetch curs1 into rec;
+exit when not found;
+rec.avg_score:=rec.total/4;
+update student set avg_score=rec.avg_score where regno=rec.regno;
+if rec.avg_score>=90 then
+rec.grade:= 'A';
+elsif rec.avg_score>=75 then
+rec.grade= 'B';
+elsif rec.avg_score >= 60 then
+rec.grade= 'C';
+elsif rec.avg_score >=50 then
+rec.grade= 'D';
+else
+rec.grade:= 'Failed';
+end if;
+update student set grade=rec.grade where regno=rec.regno;
+end loop;
+close curs1;
+end;
+$$ language plpgsql;
+Select regno, name, avg_score, grade from student;
+`;
+            copyAndRedirect(sql, 'button14.html');
+    }
+
+
+       function handleHoverClick15() {
+        const sql = `
+create table fact_table(num int, factorial numeric(15)); 
+create or replace function fact(n int) returns void as $$
+declare
+i int;
+x int;
+f numeric(15);
+begin
+truncate fact_table;
+insert into fact_table values(0, 1);
+for i in 1..n
+loop
+f:=1;
+x:=i;
+while x>0
+loop
+f:=x*f;
+x:=x-1;
+end loop;
+insert into fact_table values(i, f);
+end loop;
+end;
+$$ language plpgsql;
+select fact(10);
+select * from fact_table;
+`;
+            copyAndRedirect(sql, 'button15.html');
+    }
+
+
+
+    
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button 8 - SQL Operations</title>
+    <style>
+        body {
+            background-color: black;
+        }
+        .code-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #000000;
+            padding: 10px;
+            border: 1px solid #1b1b1b;
+            margin: 10px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .copy-button {
+            cursor: pointer;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+        }
+        .back-button {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #313131;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            width: fit-content;
+        }
+        span,p {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+        <p><strong>8. Write a program code to calculate the area of a circle for a value of radius varying from 3 to 7. Store the radius and the corresponding value of calculated area in an empty table named areas with field's radius and area.</strong></p>
+ 
+
+
+
+
+        
+<div class="code-box" onclick="copyText(this)">
+    <span>do $$</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>declare</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>r integer;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>ar numeric(10,2);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>pi constant float:=3.14;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>begin</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>create table areas(radius integer,area numeric);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>r:=3;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>while r<=7</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>loop</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>ar:=pi*power(r,2);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into areas values(r,ar);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>r:=r+1;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>end loop;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>end $$;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>select * from areas;</span>
+    </div>
+    
+    
+
+
+
+
+
+
+
+    <a href="index.html" class="back-button">Back to Home</a>
+    
+<script>
+    function copyText(box) {
+        let span = box.querySelector("span");
+        let text = span.innerText.replace("", ""); // Remove existing "Copied" if already added
+        navigator.clipboard.writeText(text).then(() => {
+            span.innerText = text + ""; // Add once
+            span.style.color = "#28a745"; // Optional: Change color
+        });
+    }
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button 5 - SQL Operations</title>
+    <style>
+        body {
+            background-color: black;
+        }
+        .code-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #000000;
+            padding: 10px;
+            border: 1px solid #1b1b1b;
+            margin: 10px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .copy-button {
+            cursor: pointer;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+        }
+        .back-button {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #313131;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            width: fit-content;
+        }
+        span,p {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <p><strong>5. Create a table employee with fields (EmpID, EName, Salary, Department, and Age). Insert some records. Write SQL queries using aggregate functions and group by clause</strong></p>
+    <hr>
+    <p><strong>A.</strong> Display the total number of employees.</p>
+    <p><strong>B.</strong> Display the name and age of the oldest employee of each department.</p>
+    <p><strong>C.</strong> Display the average age of employees of each department.</p>
+    <p><strong>D.</strong> Display departments and the average salaries.</p>
+    <p><strong>E.</strong> Display the lowest salary in employee table.</p>
+    <p><strong>F.</strong> Display the number of employees working in purchase department.</p>
+    <p><strong>G.</strong> Display the highest salary in sales department.</p>
+    <p><strong>H.</strong> Display the difference between highest and lowest salary.</p>
+    
+
+    
+
+
+
+
+
+<div class="code-box" onclick="copyText(this)">
+    <span>create table employee (empid int PRIMARY KEY,ename varchar(10),salary numeric,department varchar(20),age int);</span>
+    </div>
+    
+    <div class="code-box" onclick="copyText(this)">
+    <span>insert into employee values (101,'Adam',20000,'Purchase',25),(102,'Lisa',15000,'Sales',45),(103,'Arun',18000,'Sales',34),(104,'Aysha',25000,'Purchase',25),(105,'Sheeja',30000,'Finance',36),(106,'Sagar',28000,'Finance',42);</span>
+    </div>
+    
+    <div class="code-box" onclick="copyText(this)">
+    <span>select * from employee;</span>
+    </div>
+    
+    <div class="code-box" onclick="copyText(this)">
+    <span>select count(empid)from employee;</span>
+    </div>
+    
+    <div class="code-box" onclick="copyText(this)">
+    <span>select ename,department from employee where age in (select max(age) from employee group by department);</span>
+    </div>
+    
+    <div class="code-box" onclick="copyText(this)">
+    <span>select department,avg(age)from employee group by department;</span>
+    </div>
+    
+    <div class="code-box" onclick="copyText(this)">
+    <span>select department,avg(salary)from employee group by department;</span>
+    </div>
+    
+    <div class="code-box" onclick="copyText(this)">
+    <span>select min(salary) as min_salary from employee;</span>
+    </div>
+    
+    <div class="code-box" onclick="copyText(this)">
+    <span>select count(ename) from employee where department='Purchase';</span>
+    </div>
+    
+    <div class="code-box" onclick="copyText(this)">
+    <span>select max(salary)from employee where department='Sales';</span>
+    </div>
+    
+    <div class="code-box" onclick="copyText(this)">
+    <span>select max(salary)-min(salary) as sal_difference from employee;</span>
+    </div>
+
+
+
+
+    <div class="code-box" onclick="copyText(this)">
+    <span></span>
+    </div>
+
+
+
+    <a href="index.html" class="back-button">Back to Home</a>
+    
+<script>
+    function copyText(box) {
+        let span = box.querySelector("span");
+        let text = span.innerText.replace("", ""); // Remove existing "Copied" if already added
+        navigator.clipboard.writeText(text).then(() => {
+            span.innerText = text + ""; // Add once
+            span.style.color = "#28a745"; // Optional: Change color
+        });
+    }
+</script>
+
+
+</body>
+</html>

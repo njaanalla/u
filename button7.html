@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button 7 - SQL Operations</title>
+    <style>
+        body {
+            background-color: black;
+        }
+        .code-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #000000;
+            padding: 10px;
+            border: 1px solid #1b1b1b;
+            margin: 10px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .copy-button {
+            cursor: pointer;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+        }
+        .back-button {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #313131;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            width: fit-content;
+        }
+        span,p {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+        <p><strong>7. Consider the employee database given below. Give an expression in SQL for each of the following queries:<br>EMPLOYEE (Employee-Name, City)<br>WORKS (Employee-Name, Company-Name, Salary)<br>COMPANY (Company-Name, City)<br>MANAGES (Employee-Name, Manager-Name)</strong></p>
+        <hr>
+        <p><strong>A.</strong> Find the names of all employees who work in Infosys</p>
+        <p><strong>B.</strong> Find the names and cities of residence of all employees who works in Wipro</p>
+        <p><strong>C.</strong> Find the names, and cities of all employees who work in Infosys and earn more than Rs. 10.000.</p>
+        <p><strong>D.</strong> Find the employees who live in the same cities as the companies for which they work.</p>
+        <p><strong>E.</strong> Find all employees who do not work in Wipro Corporation.</p>
+        <p><strong>F.</strong> Find the company that has the most employees.</p>
+
+
+
+
+    
+
+
+<div class="code-box" onclick="copyText(this)">
+    <span>create table employee(empname varchar(10) primary key,city varchar(10));</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>create table company(company_name varchar(10) primary key ,city varchar(10));</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>create table works(empname varchar(10) primary key references employee(empname),cname varchar(10) references company(company_name),salary int);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>create table manages(empname varchar(10) references employee(empname),manager_name varchar(10) references employee(empname),primary key(empname,manager_name));</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into employee values('swathi','kzkd');</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into employee values('vishnu','tvm');</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into employee values('shreya','usa');</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into employee values('adam','dubai');</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into employee values('sajid','malappuram');</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into company values('infosys','tvm');</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into company values('chandrika','trissur');</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into company values('wipro','kochi');</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into company values('tata','mumbai');</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into company values('bajaj','delhi');</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into works values('swathi','infosys',10000);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into works values('vishnu','infosys',15000);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into works values('shreya','wipro',71502);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into works values('adam','infosys',8000);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into works values('sajid','wipro',18000);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into manages values('swathi','adam');</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into manages values('vishnu','adam');</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into manages values('sajid','shreya');</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>select empname from works where cname='infosys';</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>select employee.empname,employee.city from employee,works where employee.empname=works.empname and works.cname='wipro';</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>select employee.empname,city from employee,works where employee.empname=works.empname and cname='infosys' and salary>10000;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>select employee.empname from employee,works,company where employee.empname = works.empname and employee.city = company.city and works.cname = company.company_name;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>select empname from works where cname!='wipro';</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>select cname from works group by cname order by count(*) desc limit 1;</span>
+    </div>
+    
+    
+
+
+
+
+
+
+
+    <a href="index.html" class="back-button">Back to Home</a>
+    
+<script>
+    function copyText(box) {
+        let span = box.querySelector("span");
+        let text = span.innerText.replace("", ""); // Remove existing "Copied" if already added
+        navigator.clipboard.writeText(text).then(() => {
+            span.innerText = text + ""; // Add once
+            span.style.color = "#28a745"; // Optional: Change color
+        });
+    }
+</script>
+
+
+</body>
+</html>

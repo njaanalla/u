@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button 9 - SQL Operations</title>
+    <style>
+        body {
+            background-color: black;
+        }
+        .code-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #000000;
+            padding: 10px;
+            border: 1px solid #1b1b1b;
+            margin: 10px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .copy-button {
+            cursor: pointer;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+        }
+        .back-button {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #313131;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            width: fit-content;
+        }
+        span,p {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+        <p><strong>9. Write a program block to calculate the electricity bill by accepting cust_no and units_consumed</strong></p>
+  
+
+
+
+    
+
+        
+
+<div class="code-box" onclick="copyText(this)">
+    <span>create table elec_bill (cust_no int, cust_name varchar(15), units_consumed int, bill_amt int);</span>
+    </div>
+    
+ <div class="code-box" onclick="copyText(this)">
+    <span>insert into elec_bill values(101, 'Adam', 200), (102, 'Lisa', 550), (103, 'Arun', 95), (104,'Aysha', 430), (105, 'Sheeja', 350);</span>
+    </div>
+    
+ <div class="code-box" onclick="copyText(this)">
+    <span>do $$</span>
+    </div>
+    
+ <div class="code-box" onclick="copyText(this)">
+    <span>declare</span>
+    </div>
+    
+ <div class="code-box" onclick="copyText(this)">
+    <span>rate int;</span>
+    </div>
+    
+ <div class="code-box" onclick="copyText(this)">
+    <span>rec record;</span>
+    </div>
+    
+ <div class="code-box" onclick="copyText(this)">
+    <span>curs1 cursor for select * from Elec_Bill;</span>
+    </div>
+    
+ <div class="code-box" onclick="copyText(this)">
+    <span>begin</span>
+    </div>
+    
+ <div class="code-box" onclick="copyText(this)">
+    <span>open curs1;</span>
+    </div>
+    
+ <div class="code-box" onclick="copyText(this)">
+    <span>loop</span>
+    </div>
+    
+ <div class="code-box" onclick="copyText(this)">
+    <span>fetch curs1 into rec;</span>
+    </div>
+    
+ <div class="code-box" onclick="copyText(this)">
+    <span>exit when not found;</span>
+    </div>
+    
+ <div class="code-box" onclick="copyText(this)">
+    <span>if rec.units_consumed<=100 then</span>
+    </div>
+    
+ <div class="code-box" onclick="copyText(this)">
+    <span>rate:=3;</span>
+    </div>
+    
+ <div class="code-box" onclick="copyText(this)">
+    <span>elsif rec.units_consumed<=250 then</span>
+    </div>
+    
+ <div class="code-box" onclick="copyText(this)">
+    <span>rate:=4;</span>
+    </div>
+    
+ <div class="code-box" onclick="copyText(this)">
+    <span>elsif rec.units_consumed<=500 then</span>
+    </div>
+    
+ <div class="code-box" onclick="copyText(this)">
+    <span>rate:=5;</span>
+    </div>
+    
+ <div class="code-box" onclick="copyText(this)">
+    <span>else</span>
+    </div>
+    
+ <div class="code-box" onclick="copyText(this)">
+    <span>rate:=6;</span>
+    </div>
+    
+ <div class="code-box" onclick="copyText(this)">
+    <span>end if;</span>
+    </div>
+    
+ <div class="code-box" onclick="copyText(this)">
+    <span>update elec_bill set bill_amt=rate*rec.units_consumed where cust_no=rec.cust_no;</span>
+    </div>
+    
+ <div class="code-box" onclick="copyText(this)">
+    <span>end loop;</span>
+    </div>
+    
+ <div class="code-box" onclick="copyText(this)">
+    <span>close curs1;</span>
+    </div>
+    
+ <div class="code-box" onclick="copyText(this)">
+    <span>end;</span>
+    </div>
+    
+ <div class="code-box" onclick="copyText(this)">
+    <span>$$ language plpgsql;</span>
+    </div>
+    
+ <div class="code-box" onclick="copyText(this)">
+    <span>Select * from elec_bill;</span>
+    </div>
+    
+ 
+
+
+
+
+
+
+
+
+
+    <a href="index.html" class="back-button">Back to Home</a>
+    
+<script>
+    function copyText(box) {
+        let span = box.querySelector("span");
+        let text = span.innerText.replace("", ""); // Remove existing "Copied" if already added
+        navigator.clipboard.writeText(text).then(() => {
+            span.innerText = text + ""; // Add once
+            span.style.color = "#28a745"; // Optional: Change color
+        });
+    }
+</script>
+
+
+</body>
+</html>

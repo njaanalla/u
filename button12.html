@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button 12 - SQL Operations</title>
+    <style>
+        body {
+            background-color: black;
+        }
+        .code-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #000000;
+            padding: 10px;
+            border: 1px solid #1b1b1b;
+            margin: 10px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .copy-button {
+            cursor: pointer;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+        }
+        .back-button {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #313131;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            width: fit-content;
+        }
+        span,p {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+        <p><strong>12. create a table emp_salary(empno,enamedept,salary)<br>Write a function to return the average salary of a particular department by accepting ddepartmentname as argument.</strong></p>
+ 
+
+
+
+    
+
+
+<div class="code-box" onclick="copyText(this)">
+    <span>Create table emp_salary(empno int, ename varchar(15), dept varchar(15), salary int);</span>
+    </div>
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>Insert into emp_salary values(101, 'Adam', 'Production', 20000), (102, 'Lisa', 'Marketing', 15000), (103, 'Arun', 'Marketing', 18000), (104, 'Aysha', 'Production', 25000), (105, 'Sheeja', 'Finance', 30000), (106, 'Sagar', 'Finance', 28000);</span>
+    </div>
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>Select * from emp_salary;</span>
+    </div>
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>create function avg_salary(dept_name varchar(10)) returns numeric(10,2) as $$ declare</span>
+    </div>
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>avg_sal numeric(10,2);</span>
+    </div>
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>begin</span>
+    </div>
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>select avg(salary) into avg_sal from emp_salary group by dept having dept=dept_name;</span>
+    </div>
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>return avg_sal;</span>
+    </div>
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>end;</span>
+    </div>
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>$$ language plpgsql;</span>
+    </div>
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>Select avg_salary('Production');</span>
+    </div>
+    
+
+<div class="code-box" onclick="copyText(this)">
+    <span>Select avg_salary('Finance');</span>
+    </div>
+    
+
+
+
+
+        
+
+
+    <a href="index.html" class="back-button">Back to Home</a>
+    
+<script>
+    function copyText(box) {
+        let span = box.querySelector("span");
+        let text = span.innerText.replace("", ""); // Remove existing "Copied" if already added
+        navigator.clipboard.writeText(text).then(() => {
+            span.innerText = text + ""; // Add once
+            span.style.color = "#28a745"; // Optional: Change color
+        });
+    }
+</script>
+
+
+</body>
+</html>

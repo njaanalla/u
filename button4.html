@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button 4 - SQL Operations</title>
+    <style>
+        body {
+            background-color: black;
+        }
+        .code-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #000000;
+            padding: 10px;
+            border: 1px solid #1b1b1b;
+            margin: 10px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .copy-button {
+            cursor: pointer;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+        }
+        .back-button {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #313131;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            width: fit-content;
+        }
+        span,p {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <p><strong>4. Create the following tables Bank_customer (accno primary key, cust_name, place) Deposit (accno foreign key, deposit_no, damount) Loan (accno foreign key loan_no, Lamount)<br>Write the following queries</strong></p>
+    <hr>
+    <p><strong>a)</strong> Display the details of the customers</p>
+    <p><strong>b)</strong> Display the customers along with deposit amount who have only deposit with the bank</p>
+    <p><strong>c)</strong> Display the customers along with loan amount who have only loan with the bank</p>
+    <p><strong>d)</strong> Display the customers they have both loan and deposit with the bank</p>
+    <p><strong>e)</strong> Display the customer who have neither a loan nor a deposit with the bank</p>
+    
+    
+    
+
+
+
+<div class="code-box" onclick="copyText(this)">
+    <span>create table Bank_customer (accno int primary key,cust_name varchar(25),place varchar(25));</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>create table Deposit (accno int references Bank_customer(accno),deposit_no int,damount numeric);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>create table loan (accno int references bank_customer(accno),loan_no int,lamount numeric);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into bank_customer values (101,'Ravi','clt');</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into bank_customer values (102,'Adam','tvm');</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into bank_customer values (103,'Aysha','mlprm');</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into bank_customer values (104,'Lisa','knr');</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into bank_customer values (105,'Shaju','klm');</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into bank_customer values (106,'Razeen','kch');</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into bank_customer values (107,'Radha','tvm');</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into bank_customer values (108,'jose','knr');</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into deposit values (101,15,400000);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into deposit values (102,13,75000);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into deposit values (105,12,55000);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into deposit values (108,16,750000);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into loan values (103,4,500000);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into loan values (104,2,200000);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into loan values (106,6,300000);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into loan values (108,8,600000);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>select * from bank_customer;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>select b.accno,cust_name,damount from bank_customer b join deposit d on b.accno=d.accno where b.accno not in (select accno from loan);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>select b.accno,cust_name,lamount from bank_customer b join loan l on b.accno=l.accno where b.accno not in (select accno from deposit);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>select cust_name from bank_customer where accno in ((select accno from loan)intersect(select accno from deposit));</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>select cust_name from bank_customer where accno not in ((select accno from loan)union(select accno from deposit));</span>
+    </div>
+    
+    
+
+    <a href="index.html" class="back-button">Back to Home</a>
+    
+<script>
+    function copyText(box) {
+        let span = box.querySelector("span");
+        let text = span.innerText.replace("", ""); // Remove existing "Copied" if already added
+        navigator.clipboard.writeText(text).then(() => {
+            span.innerText = text + ""; // Add once
+            span.style.color = "#28a745"; // Optional: Change color
+        });
+    }
+</script>
+
+
+</body>
+</html>

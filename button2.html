@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button 2 - SQL Operations</title>
+    <style>
+        body {
+            background-color: black;
+        }
+        .code-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #000000;
+            padding: 10px;
+            border: 1px solid #1b1b1b;
+            margin: 10px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .copy-button {
+            cursor: pointer;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+        }
+        .back-button {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #313131;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            width: fit-content;
+        }
+        span,p {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <p><strong>2. Create a table sale_man (salesman_no primary key, s_name not null, place,phone unique)</strong></p>
+    <hr>
+    <p><strong>Create table sales_order (order_no primary key<br>order_date not null<br>salesman_no foreign key references salesman_no in sales_man<br>del_type values should be either P or F (check constraints)<br>order_status values should be 'Inprocess', 'Fullfilled', 'Backorder', 'Cancelled' (check constraints))</strong></p>
+    <hr>
+    <p><strong>a)</strong> Insert few records in both tables</p>
+    <p><strong>b)</strong> Delete primary key from sales_man table</p>
+    <p><strong>c)</strong> Delete Foreign key and Check constraints from sales_order table</p>
+    <p><strong>d)</strong> Add primary key in sales_man using ALTER TABLE</p>
+    <p><strong>e)</strong> Add foreign key and CHECK constraints in sales order table using ALTER TABLE</p>
+    
+
+
+
+
+<div class="code-box" onclick="copyText(this)">
+    <span>create table sales_man (salesman_no int primary key,s_name varchar(10) not null,place varchar(10),phone numeric(10) unique);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>\d sales_man;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>create table sales_order (order_no int primary key,order_date date NOT NULL,order_status char(10) NOT NULL check (order_status IN ('Inprocess','Fullfilled','Cancelled','Backorder')), salesman_no int references sales_man (salesman_no),del_type char(1) check (del_type='F' or del_type='P'));</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>\d sales_order;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into sales_man (salesman_no,s_name,place,phone) values (101,'arun','idukki',7418749563);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into sales_man values (102,'arun','munnar',7418529515);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into sales_man values (103,'varun','kollam',3574128596);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into sales_man values (104,'antony','edakkulam',7533578528);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into sales_man values (105,'ajay','alappuzha',7418529518);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>select * from sales_man;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into sales_order values(1,'01-01-17','Inprocess',101,'F'),(2,'03-02-17','Fullfilled',102,'F'),(3,'03-03-17','Fullfilled',103,'P'),(4,'03-03-17','Cancelled',104,'F'),(5,'05-03-17','Backorder',105,'P');</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>select * from sales_order;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>ALTER TABLE sales_order DROP constraint sales_order_salesman_no_fkey;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>ALTER TABLE sales_man DROP constraint sales_man_pkey;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>\d sales_man;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>ALTER TABLE sales_order DROP constraint sales_order_del_type_check;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>ALTER TABLE sales_order DROP constraint sales_order_order_status_check;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>\d sales_order;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>ALTER TABLE sales_man ADD primary key (salesman_no);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>\d sales_man</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>ALTER TABLE sales_order ADD FOREIGN KEY (salesman_no) REFERENCES sales_man (salesman_no);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>ALTER TABLE sales_order ADD CHECK (del_type='F' OR del_type='P');</span>
+    </div>
+    
+    <div class="code-box" onclick="copyText(this)">
+    <span>ALTER TABLE sales_order ADD check (order_status IN ('Inprocess','Fullfilled','Cancelled','Backorder'));</span>
+    </div>
+    
+    <div class="code-box" onclick="copyText(this)">
+    <span>\d sales_order;</span>
+    </div>
+    
+
+
+
+
+    <a href="index.html" class="back-button">Back to Home</a>
+    
+<script>
+    function copyText(box) {
+        let span = box.querySelector("span");
+        let text = span.innerText.replace("", ""); // Remove existing "Copied" if already added
+        navigator.clipboard.writeText(text).then(() => {
+            span.innerText = text + ""; // Add once
+            span.style.color = "#28a745"; // Optional: Change color
+        });
+    }
+</script>
+
+
+</body>
+</html>

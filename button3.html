@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button 3 - SQL Operations</title>
+    <style>
+        body {
+            background-color: black;
+        }
+        .code-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #000000;
+            padding: 10px;
+            border: 1px solid #1b1b1b;
+            margin: 10px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .copy-button {
+            cursor: pointer;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+        }
+        .back-button {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #313131;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            width: fit-content;
+        }
+        span,p {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <p><strong>3. Create a table Hospital with the fields (doctorid,doctorname,department,qualification,experience). Write the queries to perform the following.</strong></p>
+    <hr>
+    <p><strong>a)</strong> Insert 5 records</p>
+    <p><strong>b)</strong> Display the details of Doctors</p>
+    <p><strong>c)</strong> Display the details of doctors who have the qualification 'MD'</p>
+    <p><strong>d)</strong> Display all doctors who have more than 5 years experience but do not have the qualification 'MD'</p>
+    <p><strong>e)</strong> Display the doctors in 'Skin' department</p>
+    <p><strong>f)</strong> Update the experience of doctor with doctorid='D003' to 5</p>
+    <p><strong>g)</strong> Delete the doctor with doctorID='D005'</p>
+    
+
+
+
+<div class="code-box" onclick="copyText(this)">
+    <span>create table hospital (doctorid char(4),doctorname varchar(10),department varchar(25),qualification varchar(25),experience int);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>\d hospital;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into hospital values('D001','miya','cardiologist','mbbs',5);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into hospital values('D002','john','orthologist','md',4);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into hospital values('D003','ramesh','skin','mbbs',3);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into hospital values('D004','madona','dentist','bds',6);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into hospital values('D005','manoj','optometry','md',1);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>select * from hospital;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>select doctorname from hospital where qualification='md';</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>select doctorname from hospital where experience>5 and qualification!='md';</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>select doctorname from hospital where department='skin';</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>update hospital set experience=5 where doctorid='D003';</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>select * from hospital;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>delete from hospital where doctorid='D005';</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>select * from hospital;</span>
+    </div>
+    
+    
+
+
+    <a href="index.html" class="back-button">Back to Home</a>
+    
+<script>
+    function copyText(box) {
+        let span = box.querySelector("span");
+        let text = span.innerText.replace("", ""); // Remove existing "Copied" if already added
+        navigator.clipboard.writeText(text).then(() => {
+            span.innerText = text + ""; // Add once
+            span.style.color = "#28a745"; // Optional: Change color
+        });
+    }
+</script>
+
+
+</body>
+</html>

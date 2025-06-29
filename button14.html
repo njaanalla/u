@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Button 14 - SQL Operations</title>
+    <style>
+        body {
+            background-color: black;
+        }
+        .code-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #000000;
+            padding: 10px;
+            border: 1px solid #1b1b1b;
+            margin: 10px 0;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+        .copy-button {
+            cursor: pointer;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+        }
+        .back-button {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background-color: #313131;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            width: fit-content;
+        }
+        span,p {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+        <p><strong>14. create a table student( regno, name, paper1, paper2, paper3, paper4, paper5, total, grade,
+result), insert 5 records and create a procedure to update total as the sum of paper1, paper2,
+paper3, paper4 and paper5, result</strong></p>
+  
+
+
+
+    
+
+
+<div class="code-box" onclick="copyText(this)">
+    <span>Create table student(regno char(5), name varchar(15), paper1 numeric(3), paper2 numeric(3), paper3 numeric(3), paper4 numeric(3), total numeric(3), avg_score numeric(3,2), grade char(7));</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>insert into student values ('s101','adam',23,45,67,23), ('s102', ' sheena', 96,97,89,95), ('s103', 'bobby', 67,52,83,91), ('s104', 'radha', 34,54,23,12), ('s105', 'zara', 86,76,82,85);</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>update student set total = paper1+paper2+paper3+paper4;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>do $$</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>declare</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>rec student%rowtype;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>curs1 cursor for select * from student;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>begin</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>open curs1;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>loop</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>fetch curs1 into rec;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>exit when not found;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>rec.avg_score:=rec.total/4;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>update student set avg_score=rec.avg_score where regno=rec.regno;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>if rec.avg_score>=90 then</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>rec.grade:= 'A';</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>elsif rec.avg_score>=75 then</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>rec.grade= 'B';</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>elsif rec.avg_score >= 60 then</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>rec.grade= 'C';</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>elsif rec.avg_score >=50 then</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>rec.grade= 'D';</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>else</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>rec.grade:= 'Failed';</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>end if;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>update student set grade=rec.grade where regno=rec.regno;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>end loop;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>close curs1;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>end;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>$$ language plpgsql;</span>
+    </div>
+    
+    
+<div class="code-box" onclick="copyText(this)">
+    <span>Select regno, name, avg_score, grade from student;</span>
+    </div>
+    
+    
+
+
+
+
+
+
+
+
+
+    <a href="index.html" class="back-button">Back to Home</a>
+    
+<script>
+    function copyText(box) {
+        let span = box.querySelector("span");
+        let text = span.innerText.replace("", ""); // Remove existing "Copied" if already added
+        navigator.clipboard.writeText(text).then(() => {
+            span.innerText = text + ""; // Add once
+            span.style.color = "#28a745"; // Optional: Change color
+        });
+    }
+</script>
+
+
+</body>
+</html>

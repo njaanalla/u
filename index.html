@@ -41,13 +41,19 @@ p{color:#fff;}
 .hover-content{
     display:none;
     position:fixed;
-    inset:0;
-    background:#000;
+    width:min(90vw,640px);
+    max-width:640px;
+    background:#101010;
     color:#fff;
-    padding:40px;
+    border:1px solid #2f2f2f;
+    border-radius:10px;
+    padding:16px 18px;
     z-index:9999;
-    overflow:auto;
     cursor:pointer;
+    box-shadow:0 12px 28px rgba(0,0,0,0.45);
+}
+.hover-content p{
+    margin:0;
 }
 </style>
 </head>
@@ -157,7 +163,7 @@ p{color:#fff;}
 </div>
 
     <div class="hover-content" id="hoverContent18" onclick="copyCode(18)">
-<p><strong>18. Code for Shell script which whenever gets executed displays the message “Good Morning/Good afternoon /Good Evening “depending on the time it get executed"</strong></p>
+<p><strong>18. Code for Shell script which whenever gets executed displays the message â€œGood Morning/Good afternoon /Good Evening â€œdepending on the time it get executed"</strong></p>
 </div>
 
     <div class="hover-content" id="hoverContent19" onclick="copyCode(19)">
@@ -201,555 +207,150 @@ p{color:#fff;}
 
     
 <script>
-/* ---------- Hover ---------- */
-function addHoverEffect(btn,content){
- const b=document.getElementById(btn);
- const c=document.getElementById(content);
- b.addEventListener("mouseenter",()=>c.style.display="block");
- b.addEventListener("mouseleave",()=>c.style.display="none");
-}
-for(let i=1;i<=10;i++) addHoverEffect("btn"+i,"hoverContent"+i);
-
-/* ---------- Codes ---------- */
-const codes={
-
-1:`echo -n "Enter the radius of a circle : "
-read r
-area=$(echo "scale=2;3.14 * ($r * $r)" | bc)
-d=$(echo "scale=2;2 * $r"|bc)
-circumference=$(echo "scale=2;3.14 * $d"| bc)
-echo "Area of circle is $area"
-echo "Circumference of circle is $circumference"`,
-
-2:`echo "Enter a number "
-read n
-if [ `expr $n % 2` -eq 0 ]
-then
-echo "Given number $n is even"
-else
-echo "Given number $n is Odd"
-fi`,
-
-3:`clear
-sum=0
-i="y"
-echo " Enter one no."
-read n1
-echo "Enter second no."
-read n2
-while [ $i = "y" ]
-do
-echo "1.Addition"
-echo "2.Subtraction"
-echo "3.Multiplication"
-echo "4.Division"
-echo "Enter your choice"
-read ch
-case $ch in
- 1)sum=`expr $n1 + $n2`
- echo "Sum ="$sum;;
- 2)sum=`expr $n1 - $n2`
- echo "Sub = "$sum;;
- 3)sum=`expr $n1 \* $n2`
- echo "Mul = "$sum;;
- 4)sum=`expr $n1 / $n2`
- echo "Div = "$sum;;
- *)echo "Invalid choice";;
-esac
-echo "Do u want to continue ?"
-read i
-if [ $i != "y" ]
-then
-exit
-fi
-done`,
-
-4:`echo Enter First Number
-read a
-echo Enter Second Number
-read b
-echo Enter Third Number
-read c
-l=$a
-if [ $b -gt $l ]
-then
-l=$b
-fi
-if [ $c -gt $l ]
-then
-l=$c
-fi
-echo Lagest of $a $b $c is $l`,
-
-5:`echo Enter first numbers
-read a
-echo Enter second Number
-read b
-echo Enter Third Number
-read c
-m=$(( ($a + $b + $c) / 3))
-p=`expr $a - $m`
-q=`expr $b - $m`
-r=`expr $c - $m`
-d=$(( ($p * $p + $q * $q + $r * $r) / 3 ))
-w=$(echo "sqrt ( $d )" | bc -l)
-echo "Mean of $a, $b, $c is $m"
-echo "Standard deviation is $w"`,
-
-6:`echo Enter a number
-read n
-s=0
-p=$n
-while [ $n -gt 0 ]
-do
-r=`expr $n % 10`
-s=`expr $s + $r`
-n=`expr $n / 10`
-done
-echo "Sum of digit of given no $p is $s "`,
-
-7:`echo Enter a number
-read n
-s=0
-p=$n
-while [ $n -gt 0 ]
-do
-r=$(($n % 10))
-s=$(($s * 10 + $r))
-n=$(($n / 10))
-done
-echo "Reverse of given no $p is $s "`,
-
-8:`echo Enter a limit
-read limit
-n=2
-while [ $n -le $limit ]
-do
-i=2
-f=0
- while [ $i -lt $n ]
-do
-if [ `expr $n % $i` -eq 0 ]
-then
-f=1
-break;
-fi
-i=`expr $i + 1`
-done
-if [ $f -eq 0 ]
-then
-echo $n
-fi
-n=`expr $n + 1`
-done`,
-
-9:`echo Enter a Limit
-read num
-a=1
-b=0
-c=0
-n=1
-while [ $n -le $num ]
-do
-echo $c
-c=$(($a + $b))
-a=$b
-b=$c
-n=$(($n + 1))
-done`,
-
-10:`echo Enter a Number
-read n
-s=0
-p=$n
-while [ $n -gt 0 ]
-do
-r=$(($n % 10))
-s=$(($s + $r * $r * $r))
-n=$(($n / 10))
-done
-if [ $p -eq $s ]
-then
-echo Given number is Amstrong
-else
-echo Given number is Not Amstrong
-fi`,
-
-11:`echo "Enter a string "
-read s
-t=`echo $s|wc -c`
-t=`expr $t - 1`
-while [ $t -ne 0 ]
-do
-temp=`echo $s|cut -c $t`
-tem1=`echo $tem1$temp`
-t=`expr $t - 1`
-done
-echo "Reverse of the string is $tem1"
-if [ "$s" == "$tem1" ]
-then
-echo Given String $s is Palindrom
-else
-echo Given String $s is Not Palindrom
-fi`,
-
-12:`echo Enter the filename
-read file
-w=`cat $file | wc -w`
-c=`cat $file | wc -c`
-l=`grep -c "." $file`
-echo Number of characters in $file is $c
-echo Number of words in $file is $w
-echo Number of lines in $file is $l`,
-
-13:`echo Enter the filename
-read filename
-echo Contents of $filename before converting to uppercase
-echo ----------------------------------------------------
-cat $filename
-echo ----------------------------------------------------
-echo Contents of $filename after converting to uppercase
-echo ---------------------------------------------------
-cat $filename | tr '[a-z]' '[A-Z]'
-echo ---------------------------------------------------`,
-
-14:`echo "Input number"
-read no
-echo "Input power"
-read power
-counter=0
-ans=1
-while [ $power -ne $counter ]
-do
- ans=`expr $ans \* $no`
- counter=`expr $counter + 1`
-done
-echo "$no power of $power is $ans"`,
-
-15:`echo "Total no of factorial wants"
-read n
-fact=1
-while [ $n -gt 0 ]
-do
- fact=`expr $fact \* $n`
-n=`expr $n - 1`
-done
-echo "Total of factorial is $fact"`,
-
-16:`echo "Enter ur basic salary "
-read sal
- da=`expr $sal \* 40 / 100`
- ha=`expr $sal \* 20 / 100`
- Nsal=`expr $sal + $da + $ha`
- echo "ur Basic Salary $sal "
- echo "ur Dearness Allowance $da "
- echo "Ur House rent $ha "
- echo " ------------"
- echo "Ur Net Salary is Rs. $Nsal "`,
-
-17:`sum=0
-for i in $*
-do
- sum=`expr $sum + $i`
-done
-echo "Summation of "$#" no. is: "$sum`,
-
-18:`clear
- hours=`date|cut -c12-13`
- if [ $hours -le 12 ]
- then
- echo "Good Morning"
- else
- if [ $hours -le 16 ]
- then
- echo "Good Afternoon"
- elif [ $hours -le 20 ]
- then
- echo "Good Evening"
- else
- echo "Good Night"
- fi
- fi`,
-
-19:`echo Enter a word for banner
-read b
-banner $b
-echo Enter a year
-read y
-cal $y`,
-
-20:`u=`who am i | cut -f1 -d' '`
-d=`who am i | cut -f10 -d' '`
-t=`who am i | cut -f11 -d' '`
-echo "Today is `date +%D`"
-echo "Current time is `date | cut -f5 -d' '`"
-echo "As of now `who | wc -l` user are login to the system"
-echo "My details :-------"
-echo "User Name $u"
-echo "Login Date is $d"
-echo "Current Login Time is $t"`,
-
-21:`echo "Enter a file name "
-read file
-if [ -e $file ]
-then
- echo "File exists"
-if [ -r $file ]
-then
- echo "File has read access"
-else
- echo "File does not have read access"
-fi
-if [ -w $file ]
-then
- echo "File has write permission"
-else
- echo "File does not have write permission"
-fi
-if [ -x $file ]
-then
- echo "File has execute permission"
-else
- echo "File does not have execute permission"
-fi
-if [ -f $file ]
-then
- echo "File is an ordinary file"
-else
- echo "This is sepcial file"
-fi
-if [ -d $file ]
-then
- echo "File is a directory"
-else
- echo "This is not a directory"
-fi
-if [ -s $file ]
-then
- echo "File size is zero"
-else
- echo "File size is not zero"
- fi
-else
- echo "File does not exist"
-fi`,
-
-22:`if [ -e $1 ]
-then
-if [ -e $2 ]
-then
-echo File $2 already exists does not make copy
-else
-cp $1 $2
-fi
-else
-echo File $1 Does not exists
-fi`,
-
-23:`clear
- echo "Type any String"
- read string
- length=`echo $string | wc -c`
- nvowels=0
- nconsonants=0
- ndigits=0
- while [ $length -gt 1 ]
- do
- length=`expr $length - 1`
- h=`echo $string | cut -c$length`
-
- case $h in
- [AaEeIiOoUu]) nvowels=`expr $nvowels + 1`
- ;;
- [BbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz])
- nconsonants=`expr $nconsonants + 1`
- ;;
- [0-9]) ndigits=`expr $ndigits + 1`
- ;;
- esac
- done
- echo "Number of Vowels : $nvowels"
- echo "Number of Consonants : $nconsonants"
- echo "Number of Digits : $ndigits"`,
-
-24:`i="y"
-while [ $i = "y" ]
-do
-echo "1.Display current dir"
-echo "2.Listing the dir"
-echo "3.Make a dir"
-echo "4.Copy a file"
-echo "5.Rename file"
-echo "6.Delete file"
-echo "7.Exit"
-echo "Enter your choice"
-read ch
-case $ch in
-1)echo "Current Dir is : "
- pwd;;
-2)echo "Directories are"
- ls;;
-3)echo "Enter dir name to create"
- read d
- mkdir $d
- echo "$d Dir is created";;
-4)echo "Enter filename from copy"
- read f1
- echo "Enter filenm2 to be copied"
- read f2
- cp $f1 $f2
- echo "$f2 is copied from $f1 ";;
-5)echo "Enter file name to rename"
- read f1
- echo "Enter new name of file"
- read f2
- mv $f1 $f2
- echo "$f1 is renamed as $f2 ";;
-6)echo "Enter any filenm to be delete"
- read f1
- rm $f1
- echo $f1" is deleted";;
-*)echo "Invalid choice entered";;
-esac
-echo "Do u want to continue ? "
-read i
-if [ $i != "y" ]
-then
- exit
-fi
-done`,
-
-25:`echo "Enter first file name "
-read file1
-echo "Enter second file name "
-read file2
-if [ -f $file1 ]
-then
-if [ -f $file2 ]
-then
-if [ `cmp $file1 $file2` =='' ]
-then
-rm $file2
-echo "File $file2 Removed "
-fi
-else
-echo File $file2 does not Exists
-fi
-else
-echo File $file1 does not Exist
-fi`,
-
-26:`ch=0
-while [ $ch -lt 5 ]
-do
-clear
-echo "1. Add new Record "
-echo "2. Display"
-echo "3. Search"
-echo "4. Delete"
-echo "5. Exit"
-echo "Enter your choice "
-read ch
-case $ch in
-1) echo Enter name
-read name
-echo Enter Phone Number
-read phone
-echo "$name $phone" >> phonebook ;;
-2) echo "Name Phone "
-cat phonebook;;
-3) echo "Enter a name to search "
-read sname
-nm=`grep $sname phonebook | cut -f2`
-echo "Phone number of $sname is $nm";;
-4) echo "Enter a name to delete "
-read nm
-while read line
-do
-if [ `echo $line | cut -f1 -d' '` != $nm ]
-then
-echo $line >> temp
-fi
-done < phonebook
-cp temp phonebook
-rm temp
-echo Record of $nm deleted;;
-esac
-read
-done`,
-
-27:`echo -n "Enter Regno "
-read regno
-echo -n "Enter Name "
-read sname
-for i in 1 2 3 4 5
-do
-echo -n "Enter mark of subject$i "
- read mark[$i]
-done
-s=0
-a=0
-for i in 1 2 3 4 5
-do
-s=`expr $s + ${mark[$i]}`
-done
-a=`expr $s / 5`
-if [ $a -ge 90 ]
-then
-gr="A"
-elif [ $a -ge 80 ]
-then
-gr="B"
-elif [ $a -ge 60 ]
-then
-gr="C"
-elif [ $a -ge 40 ]
-then
-gr="D"
-else
-gr="E"
-fi
-echo "Register number : $regno "
-echo "Student Name : $sname "
-echo "Total Mark of 5 Subjects : $s "
-echo "Average Mark of 5 Subject : $a "
-echo "Grade : $gr "`,
-
-28:`for i in {1..10}
-do
-echo "Enter a number "
-read a[$i]
-done
-for i in {1..10}
-do
-for j in {1..10}
-do
-if [ ${a[$i]} -lt ${a[$j]} ]
-then
-t=${a[$i]}
-a[$i]=${a[$j]}
-a[$j]=$t
-fi
-done
-done
-echo "Sorted Numbers ......"
-echo "====================="
-for i in {1..10}
-do
-echo ${a[$i]}
-done`
+const codes = {
+  1: "echo -n \"Enter the radius of a circle : \"\r\nread r\r\narea=$(echo \"scale=2;3.14 * ($r * $r)\" | bc)\r\nd=$(echo \"scale=2;2 * $r\"|bc)\r\ncircumference=$(echo \"scale=2;3.14 * $d\"| bc)\r\necho \"Area of circle is $area\"\r\necho \"Circumference of circle is $circumference\"",
+  2: "echo \"Enter a number \"\r\nread n\r\nif [ `expr $n % 2` -eq 0 ]\r\nthen\r\necho \"Given number $n is even\"\r\nelse\r\necho \"Given number $n is Odd\"\r\nfi",
+  3: "clear\r\nsum=0\r\ni=\"y\"\r\necho \" Enter one no.\"\r\nread n1\r\necho \"Enter second no.\"\r\nread n2\r\nwhile [ $i = \"y\" ]\r\ndo\r\necho \"1.Addition\"\r\necho \"2.Subtraction\"\r\necho \"3.Multiplication\"\r\necho \"4.Division\"\r\necho \"Enter your choice\"\r\nread ch\r\ncase $ch in\r\n 1)sum=`expr $n1 + $n2`\r\n echo \"Sum =\"$sum;;\r\n 2)sum=`expr $n1 - $n2`\r\n echo \"Sub = \"$sum;;\r\n 3)sum=`expr $n1 \\* $n2`\r\n echo \"Mul = \"$sum;;\r\n 4)sum=`expr $n1 / $n2`\r\n echo \"Div = \"$sum;;\r\n *)echo \"Invalid choice\";;\r\nesac\r\necho \"Do u want to continue ?\"\r\nread i\r\nif [ $i != \"y\" ]\r\nthen\r\nexit\r\nfi\r\ndone",
+  4: "echo Enter First Number\r\nread a\r\necho Enter Second Number\r\nread b\r\necho Enter Third Number\r\nread c\r\nl=$a\r\nif [ $b -gt $l ]\r\nthen\r\nl=$b\r\nfi\r\nif [ $c -gt $l ]\r\nthen\r\nl=$c\r\nfi\r\necho Lagest of $a $b $c is $l",
+  5: "echo Enter first numbers\r\nread a\r\necho Enter second Number\r\nread b\r\necho Enter Third Number\r\nread c\r\nm=$(( ($a + $b + $c) / 3))\r\np=`expr $a - $m`\r\nq=`expr $b - $m`\r\nr=`expr $c - $m`\r\nd=$(( ($p * $p + $q * $q + $r * $r) / 3 ))\r\nw=$(echo \"sqrt ( $d )\" | bc -l)\r\necho \"Mean of $a, $b, $c is $m\"\r\necho \"Standard deviation is $w\"",
+  6: "echo Enter a number\r\nread n\r\ns=0\r\np=$n\r\nwhile [ $n -gt 0 ]\r\ndo\r\nr=`expr $n % 10`\r\ns=`expr $s + $r`\r\nn=`expr $n / 10`\r\ndone\r\necho \"Sum of digit of given no $p is $s \"",
+  7: "echo Enter a number\r\nread n\r\ns=0\r\np=$n\r\nwhile [ $n -gt 0 ]\r\ndo\r\nr=$(($n % 10))\r\ns=$(($s * 10 + $r))\r\nn=$(($n / 10))\r\ndone\r\necho \"Reverse of given no $p is $s \"",
+  8: "echo Enter a limit\r\nread limit\r\nn=2\r\nwhile [ $n -le $limit ]\r\ndo\r\ni=2\r\nf=0\r\n while [ $i -lt $n ]\r\ndo\r\nif [ `expr $n % $i` -eq 0 ]\r\nthen\r\nf=1\r\nbreak;\r\nfi\r\ni=`expr $i + 1`\r\ndone\r\nif [ $f -eq 0 ]\r\nthen\r\necho $n\r\nfi\r\nn=`expr $n + 1`\r\ndone",
+  9: "echo Enter a Limit\r\nread num\r\na=1\r\nb=0\r\nc=0\r\nn=1\r\nwhile [ $n -le $num ]\r\ndo\r\necho $c\r\nc=$(($a + $b))\r\na=$b\r\nb=$c\r\nn=$(($n + 1))\r\ndone",
+  10: "echo Enter a Number\r\nread n\r\ns=0\r\np=$n\r\nwhile [ $n -gt 0 ]\r\ndo\r\nr=$(($n % 10))\r\ns=$(($s + $r * $r * $r))\r\nn=$(($n / 10))\r\ndone\r\nif [ $p -eq $s ]\r\nthen\r\necho Given number is Amstrong\r\nelse\r\necho Given number is Not Amstrong\r\nfi",
+  11: "echo \"Enter a string \"\r\nread s\r\nt=`echo $s|wc -c`\r\nt=`expr $t - 1`\r\nwhile [ $t -ne 0 ]\r\ndo\r\ntemp=`echo $s|cut -c $t`\r\ntem1=`echo $tem1$temp`\r\nt=`expr $t - 1`\r\ndone\r\necho \"Reverse of the string is $tem1\"\r\nif [ \"$s\" == \"$tem1\" ]\r\nthen\r\necho Given String $s is Palindrom\r\nelse\r\necho Given String $s is Not Palindrom\r\nfi",
+  12: "echo Enter the filename\r\nread file\r\nw=`cat $file | wc -w`\r\nc=`cat $file | wc -c`\r\nl=`grep -c \".\" $file`\r\necho Number of characters in $file is $c\r\necho Number of words in $file is $w\r\necho Number of lines in $file is $l",
+  13: "echo Enter the filename\r\nread filename\r\necho Contents of $filename before converting to uppercase\r\necho ----------------------------------------------------\r\ncat $filename\r\necho ----------------------------------------------------\r\necho Contents of $filename after converting to uppercase\r\necho ---------------------------------------------------\r\ncat $filename | tr \u0027[a-z]\u0027 \u0027[A-Z]\u0027\r\necho ---------------------------------------------------",
+  14: "echo \"Input number\"\r\nread no\r\necho \"Input power\"\r\nread power\r\ncounter=0\r\nans=1\r\nwhile [ $power -ne $counter ]\r\ndo\r\n ans=`expr $ans \\* $no`\r\n counter=`expr $counter + 1`\r\ndone\r\necho \"$no power of $power is $ans\"",
+  15: "echo \"Total no of factorial wants\"\r\nread n\r\nfact=1\r\nwhile [ $n -gt 0 ]\r\ndo\r\n fact=`expr $fact \\* $n`\r\nn=`expr $n - 1`\r\ndone\r\necho \"Total of factorial is $fact\"",
+  16: "echo \"Enter ur basic salary \"\r\nread sal\r\n da=`expr $sal \\* 40 / 100`\r\n ha=`expr $sal \\* 20 / 100`\r\n Nsal=`expr $sal + $da + $ha`\r\n echo \"ur Basic Salary $sal \"\r\n echo \"ur Dearness Allowance $da \"\r\n echo \"Ur House rent $ha \"\r\n echo \" ------------\"\r\n echo \"Ur Net Salary is Rs. $Nsal \"",
+  17: "sum=0\r\nfor i in $*\r\ndo\r\n sum=`expr $sum + $i`\r\ndone\r\necho \"Summation of \"$#\" no. is: \"$sum",
+  18: "clear\r\n hours=`date|cut -c12-13`\r\n if [ $hours -le 12 ]\r\n then\r\n echo \"Good Morning\"\r\n else\r\n if [ $hours -le 16 ]\r\n then\r\n echo \"Good Afternoon\"\r\n elif [ $hours -le 20 ]\r\n then\r\n echo \"Good Evening\"\r\n else\r\n echo \"Good Night\"\r\n fi\r\n fi",
+  19: "echo Enter a word for banner\r\nread b\r\nbanner $b\r\necho Enter a year\r\nread y\r\ncal $y",
+  20: "u=`who am i | cut -f1 -d\u0027 \u0027`\r\nd=`who am i | cut -f10 -d\u0027 \u0027`\r\nt=`who am i | cut -f11 -d\u0027 \u0027`\r\necho \"Today is `date +%D`\"\r\necho \"Current time is `date | cut -f5 -d\u0027 \u0027`\"\r\necho \"As of now `who | wc -l` user are login to the system\"\r\necho \"My details :-------\"\r\necho \"User Name $u\"\r\necho \"Login Date is $d\"\r\necho \"Current Login Time is $t\"",
+  21: "echo \"Enter a file name \"\r\nread file\r\nif [ -e $file ]\r\nthen\r\n echo \"File exists\"\r\nif [ -r $file ]\r\nthen\r\n echo \"File has read access\"\r\nelse\r\n echo \"File does not have read access\"\r\nfi\r\nif [ -w $file ]\r\nthen\r\n echo \"File has write permission\"\r\nelse\r\n echo \"File does not have write permission\"\r\nfi\r\nif [ -x $file ]\r\nthen\r\n echo \"File has execute permission\"\r\nelse\r\n echo \"File does not have execute permission\"\r\nfi\r\nif [ -f $file ]\r\nthen\r\n echo \"File is an ordinary file\"\r\nelse\r\n echo \"This is sepcial file\"\r\nfi\r\nif [ -d $file ]\r\nthen\r\n echo \"File is a directory\"\r\nelse\r\n echo \"This is not a directory\"\r\nfi\r\nif [ -s $file ]\r\nthen\r\n echo \"File size is zero\"\r\nelse\r\n echo \"File size is not zero\"\r\n fi\r\nelse\r\n echo \"File does not exist\"\r\nfi",
+  22: "if [ -e $1 ]\r\nthen\r\nif [ -e $2 ]\r\nthen\r\necho File $2 already exists does not make copy\r\nelse\r\ncp $1 $2\r\nfi\r\nelse\r\necho File $1 Does not exists\r\nfi",
+  23: "clear\r\n echo \"Type any String\"\r\n read string\r\n length=`echo $string | wc -c`\r\n nvowels=0\r\n nconsonants=0\r\n ndigits=0\r\n while [ $length -gt 1 ]\r\n do\r\n length=`expr $length - 1`\r\n h=`echo $string | cut -c$length`\r\n\r\n case $h in\r\n [AaEeIiOoUu]) nvowels=`expr $nvowels + 1`\r\n ;;\r\n [BbCcDdFfGgHhJjKkLlMmNnPpQqRrSsTtVvWwXxYyZz])\r\n nconsonants=`expr $nconsonants + 1`\r\n ;;\r\n [0-9]) ndigits=`expr $ndigits + 1`\r\n ;;\r\n esac\r\n done\r\n echo \"Number of Vowels : $nvowels\"\r\n echo \"Number of Consonants : $nconsonants\"\r\n echo \"Number of Digits : $ndigits\"",
+  24: "i=\"y\"\r\nwhile [ $i = \"y\" ]\r\ndo\r\necho \"1.Display current dir\"\r\necho \"2.Listing the dir\"\r\necho \"3.Make a dir\"\r\necho \"4.Copy a file\"\r\necho \"5.Rename file\"\r\necho \"6.Delete file\"\r\necho \"7.Exit\"\r\necho \"Enter your choice\"\r\nread ch\r\ncase $ch in\r\n1)echo \"Current Dir is : \"\r\n pwd;;\r\n2)echo \"Directories are\"\r\n ls;;\r\n3)echo \"Enter dir name to create\"\r\n read d\r\n mkdir $d\r\n echo \"$d Dir is created\";;\r\n4)echo \"Enter filename from copy\"\r\n read f1\r\n echo \"Enter filenm2 to be copied\"\r\n read f2\r\n cp $f1 $f2\r\n echo \"$f2 is copied from $f1 \";;\r\n5)echo \"Enter file name to rename\"\r\n read f1\r\n echo \"Enter new name of file\"\r\n read f2\r\n mv $f1 $f2\r\n echo \"$f1 is renamed as $f2 \";;\r\n6)echo \"Enter any filenm to be delete\"\r\n read f1\r\n rm $f1\r\n echo $f1\" is deleted\";;\r\n*)echo \"Invalid choice entered\";;\r\nesac\r\necho \"Do u want to continue ? \"\r\nread i\r\nif [ $i != \"y\" ]\r\nthen\r\n exit\r\nfi\r\ndone",
+  25: "echo \"Enter first file name \"\r\nread file1\r\necho \"Enter second file name \"\r\nread file2\r\nif [ -f $file1 ]\r\nthen\r\nif [ -f $file2 ]\r\nthen\r\nif [ `cmp $file1 $file2` ==\u0027\u0027 ]\r\nthen\r\nrm $file2\r\necho \"File $file2 Removed \"\r\nfi\r\nelse\r\necho File $file2 does not Exists\r\nfi\r\nelse\r\necho File $file1 does not Exist\r\nfi",
+  26: "ch=0\r\nwhile [ $ch -lt 5 ]\r\ndo\r\nclear\r\necho \"1. Add new Record \"\r\necho \"2. Display\"\r\necho \"3. Search\"\r\necho \"4. Delete\"\r\necho \"5. Exit\"\r\necho \"Enter your choice \"\r\nread ch\r\ncase $ch in\r\n1) echo Enter name\r\nread name\r\necho Enter Phone Number\r\nread phone\r\necho \"$name $phone\" \u003e\u003e phonebook ;;\r\n2) echo \"Name Phone \"\r\ncat phonebook;;\r\n3) echo \"Enter a name to search \"\r\nread sname\r\nnm=`grep $sname phonebook | cut -f2`\r\necho \"Phone number of $sname is $nm\";;\r\n4) echo \"Enter a name to delete \"\r\nread nm\r\nwhile read line\r\ndo\r\nif [ `echo $line | cut -f1 -d\u0027 \u0027` != $nm ]\r\nthen\r\necho $line \u003e\u003e temp\r\nfi\r\ndone \u003c phonebook\r\ncp temp phonebook\r\nrm temp\r\necho Record of $nm deleted;;\r\nesac\r\nread\r\ndone",
+  27: "echo -n \"Enter Regno \"\r\nread regno\r\necho -n \"Enter Name \"\r\nread sname\r\nfor i in 1 2 3 4 5\r\ndo\r\necho -n \"Enter mark of subject$i \"\r\n read mark[$i]\r\ndone\r\ns=0\r\na=0\r\nfor i in 1 2 3 4 5\r\ndo\r\ns=`expr $s + ${mark[$i]}`\r\ndone\r\na=`expr $s / 5`\r\nif [ $a -ge 90 ]\r\nthen\r\ngr=\"A\"\r\nelif [ $a -ge 80 ]\r\nthen\r\ngr=\"B\"\r\nelif [ $a -ge 60 ]\r\nthen\r\ngr=\"C\"\r\nelif [ $a -ge 40 ]\r\nthen\r\ngr=\"D\"\r\nelse\r\ngr=\"E\"\r\nfi\r\necho \"Register number : $regno \"\r\necho \"Student Name : $sname \"\r\necho \"Total Mark of 5 Subjects : $s \"\r\necho \"Average Mark of 5 Subject : $a \"\r\necho \"Grade : $gr \"",
+  28: "for i in {1..10}\r\ndo\r\necho \"Enter a number \"\r\nread a[$i]\r\ndone\r\nfor i in {1..10}\r\ndo\r\nfor j in {1..10}\r\ndo\r\nif [ ${a[$i]} -lt ${a[$j]} ]\r\nthen\r\nt=${a[$i]}\r\na[$i]=${a[$j]}\r\na[$j]=$t\r\nfi\r\ndone\r\ndone\r\necho \"Sorted Numbers ......\"\r\necho \"=====================\"\r\nfor i in {1..10}\r\ndo\r\necho ${a[$i]}\r\ndone"
 };
 
-/* ---------- Copy + Button Color ---------- */
-function copyCode(id){
- navigator.clipboard.writeText(codes[id]);
+const TOTAL_ITEMS = 28;
+const hideTimers = {};
 
- // change button color
- const btn=document.getElementById("btn"+id);
- btn.classList.add("copied");
+function positionPopup(id) {
+  const btn = document.getElementById("btn" + id);
+  const popup = document.getElementById("hoverContent" + id);
+  if (!btn || !popup) return;
+
+  const btnRect = btn.getBoundingClientRect();
+  popup.style.left = (btnRect.right + 12) + "px";
+  popup.style.top = btnRect.top + "px";
+
+  const popupRect = popup.getBoundingClientRect();
+  if (popupRect.right > window.innerWidth - 8) {
+    popup.style.left = Math.max(8, btnRect.left - popupRect.width - 12) + "px";
+  }
+  const maxTop = window.innerHeight - popupRect.height - 8;
+  popup.style.top = Math.max(8, Math.min(btnRect.top, maxTop)) + "px";
 }
+
+function showPopup(id) {
+  const popup = document.getElementById("hoverContent" + id);
+  if (!popup) return;
+  clearTimeout(hideTimers[id]);
+  popup.style.display = "block";
+  positionPopup(id);
+}
+
+function hidePopup(id) {
+  const popup = document.getElementById("hoverContent" + id);
+  if (!popup) return;
+  popup.style.display = "none";
+}
+
+function scheduleHidePopup(id) {
+  clearTimeout(hideTimers[id]);
+  hideTimers[id] = setTimeout(function () {
+    hidePopup(id);
+  }, 120);
+}
+
+function fallbackCopy(text) {
+  const temp = document.createElement("textarea");
+  temp.value = text;
+  temp.setAttribute("readonly", "");
+  temp.style.position = "fixed";
+  temp.style.left = "-9999px";
+  document.body.appendChild(temp);
+  temp.focus();
+  temp.select();
+  document.execCommand("copy");
+  document.body.removeChild(temp);
+}
+
+function copyCode(id) {
+  const text = codes[id];
+  if (typeof text !== "string") return;
+
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).catch(function () {
+      fallbackCopy(text);
+    });
+  } else {
+    fallbackCopy(text);
+  }
+
+  const btn = document.getElementById("btn" + id);
+  if (btn) {
+    btn.classList.add("copied");
+  }
+}
+
+for (let i = 1; i <= TOTAL_ITEMS; i++) {
+  const btn = document.getElementById("btn" + i);
+  const popup = document.getElementById("hoverContent" + i);
+  if (!btn || !popup) continue;
+
+  btn.addEventListener("mouseenter", function () {
+    showPopup(i);
+  });
+  btn.addEventListener("mouseleave", function () {
+    scheduleHidePopup(i);
+  });
+  btn.addEventListener("click", function () {
+    copyCode(i);
+  });
+
+  popup.addEventListener("mouseenter", function () {
+    clearTimeout(hideTimers[i]);
+  });
+  popup.addEventListener("mouseleave", function () {
+    hidePopup(i);
+  });
+}
+
+window.addEventListener("scroll", function () {
+  for (let i = 1; i <= TOTAL_ITEMS; i++) {
+    const popup = document.getElementById("hoverContent" + i);
+    if (popup && popup.style.display === "block") {
+      positionPopup(i);
+    }
+  }
+});
+
+window.addEventListener("resize", function () {
+  for (let i = 1; i <= TOTAL_ITEMS; i++) {
+    const popup = document.getElementById("hoverContent" + i);
+    if (popup && popup.style.display === "block") {
+      positionPopup(i);
+    }
+  }
+});
 </script>
 
 </body>
 </html>
-

@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hover Buttons</title>
+
+<style>
+body{
+    margin:0;
+    padding:40px 0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    background:#000;
+    min-height:100vh;
+}
+.button-container{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+.btn{
+    width:300px;
+    height:50px;
+    background:#141414;
+    color:#fff;
+    border:none;
+    font-size:16px;
+    cursor:pointer;
+    transition:background 0.25s;
+}
+
+/* copied state */
+.btn.copied{
+    background:#303030;
+}
+
+p{color:#fff;}
+
+.hover-content{
+    display:none;
+    position:fixed;
+    width:min(90vw,640px);
+    max-width:640px;
+    background:#101010;
+    color:#fff;
+    border:1px solid #2f2f2f;
+    border-radius:10px;
+    padding:16px 18px;
+    z-index:9999;
+    cursor:pointer;
+    box-shadow:0 12px 28px rgba(0,0,0,0.45);
+}
+.hover-content p{
+    margin:0;
+}
+
+
+.back-btn{
+    position:fixed;
+    top:15px;
+    left:15px;
+    background:#141414;
+    color:#fff;
+    padding:8px 14px;
+    text-decoration:none;
+    border-radius:6px;
+    font-size:14px;
+    border:1px solid #2f2f2f;
+}
+.back-btn:hover{
+    background:#2a2a2a;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- BACK BUTTON ADD HERE -->
+<a href="index.html" class="back-btn">← Back</a>
+
+<div class="button-container">
+
+<div class="button-container">
+<button class="btn" id="btn1">1</button>
+<button class="btn" id="btn2">2</button>
+<button class="btn" id="btn3">3</button>
+<button class="btn" id="btn4">4</button>
+<button class="btn" id="btn5">5</button>
+<button class="btn" id="btn6">6</button>
+<button class="btn" id="btn7">7</button>
+<button class="btn" id="btn8">8</button>
+<button class="btn" id="btn9">9</button>
+<button class="btn" id="btn10">10</button>
+</div>
+
+<!-- QUESTIONS -->
+<div class="hover-content" id="hoverContent1" onclick="copyCode(1)">
+<p><strong>1. Create a PHP program to display the bio data of a person by reading the personal details using an HTML page.
+</strong></p>
+</div>
+
+<div class="hover-content" id="hoverContent2" onclick="copyCode(2)">
+<p><strong>2. Write a PHP program to check whether a given number is perfect, abundant or deficient.</strong></p>
+</div>
+
+<div class="hover-content" id="hoverContent3" onclick="copyCode(3)">
+<p><strong>3. Create a login page using database.</strong></p>
+</div>
+
+<div class="hover-content" id="hoverContent4" onclick="copyCode(4)">
+<p><strong>4. Create a table student with fields roll no, name, mark, grade.<br>Insert some records in the table.<br>Write a PHP program to display the mark list of a student by accepting the register no of the student.</strong></p>
+</div>
+
+<div class="hover-content" id="hoverContent5" onclick="copyCode(5)">
+<p><strong>5. Write a PHP application to generate the pay slip of an employee by accepting name, basic salary and designation.<br>The net salary will be calculated based on the following conditions.</strong></p>
+</div>
+
+<div class="hover-content" id="hoverContent6" onclick="copyCode(6)">
+<p><strong>6. Write an HTML page to display a list of fruits in a list box.<br>Write php program to display the selected fruits in a webpage.</strong></p>
+</div>
+
+<div class="hover-content" id="hoverContent7" onclick="copyCode(7)">
+<p><strong>7. PHP program to store current date-time in a cookie and display the Last visited date-time on the web page upon revisiting the same web page.</strong></p>
+</div>
+
+<div class="hover-content" id="hoverContent8" onclick="copyCode(8)">
+<p><strong>8. Create a table product with fields itemcode, itemname, unitprice.<br>Write PHP program to insert 5 records into the table and display it in a table format.</strong></p>
+</div>
+
+<div class="hover-content" id="hoverContent9" onclick="copyCode(9)">
+<p><strong>9. Write a PHP function to reverse a string</strong></p>
+</div>
+
+<div class="hover-content" id="hoverContent10" onclick="copyCode(10)">
+<p><strong>10. Write a php script to upload the file to the server through HTML page.</strong></p>
+</div>
+
+<!-- CODE DATA -->
+<textarea id="code1" hidden><html> <body>
+<form action="" method="POST">
+<H1><center>BIO-DATA</center></h1>
+Name:<input type=text name="name1"><br>
+Address: <textarea name=address1>
+&lt;/textarea><br> Age: <input type=text
+name=age1><br>
+Mobile: <input type=text
+name=mobile1><br> Email: <input
+type=text name=email1><br>
+Qualification:<input type=text name=qualification1><br>
+<input type=submit value=Display ><br>
+</form> </body> </html>
+<?php
+if($_POST){
+echo "<h1><center>BIO-DATA</center></h1>";
+echo "Name: ".$_POST["name1"]."<br>";
+echo "Address: ".$_POST["address1"]."<br>";
+echo "Age: ".$_POST["age1"]."<br>";
+echo "Mobile ".$_POST["mobile1"]."<br>"; echo "Email ".$_POST["email1"]."<br>";
+echo "Qualification ".$_POST["qualification1"]."<br>";
+}
+?></textarea>
+
+<textarea id="code2" hidden><html>
+<body>
+<h2>Enter the number</h2><br>
+<form action="" method="post">
+<input type="text"name="number"/>
+<input type="submit"/>
+</form>
+</body>
+</html>
+<?php
+if($_POST)
+{
+$no=$_POST['number'];
+$sum=0;
+for($i=1;$i<$no;$i++)
+{
+if($no%$i==0)
+$sum=$sum+$i;
+}
+if($sum==$no)
+echo "Perfect number";
+else if($sum>$no)
+echo "Abundant Number";
+else
+echo "Deficient Number";
+}
+?></textarea>
+
+<textarea id="code3" hidden><html>
+<head>
+</head>
+<body>
+<form action="" method="POST">
+Username:<input type="text" name="usr"><br><br>
+Password:<input type="password" name="pass"><br><br><br>
+<input type="submit" value="login">
+</form>
+</body>
+</html>
+<?php
+if($_POST)
+{
+$usr1=$_POST['usr'];
+$paswd=$_POST['pass'];
+$con=pg_connect("host=localhost dbname=loginform user=postgres password=123");
+if($con)
+{
+echo "Successfully Connected.....";
+$qry="select username,password from logintable where username='$usr1' and password='$paswd'";
+$result=pg_query($con,$qry);
+$nos=pg_num_rows($result);
+if($nos)
+echo "<br>$usr1,You Are Logged Successfully...";
+else
+echo "Login Denied";
+}
+}
+?></textarea>
+
+<textarea id="code4" hidden><html>
+<head>
+<title>MARKLIST</title>
+</head>
+<body>
+<h3><center>Marksheet</center></h3>
+<form method="POST" action=" ">
+<label>Regno:</label>
+<input type="text"name="txtreg"/><br><br><br>
+<input type="submit"value="show">
+</form>
+</body>
+</html>
+<?php
+if($_POST)
+{
+$rg=$_POST['txtreg'];
+echo $rg;
+$con=pg_connect("host=localhost dbname=college user=postgres password=123");
+if($con)
+echo"Successfully Connected...";
+$qry="select * from stud where roll_no='$rg'";
+$result=pg_query($con,$qry);
+$nos=pg_num_rows($result);
+while($row=pg_fetch_row($result))
+{
+echo"<br>\n";
+echo"roll_no:$row[0] name:$row[1] mark:$row[2] grade:$row[3]";
+}
+}
+?></textarea>
+
+<textarea id="code5" hidden><html>
+<head>
+<title>Payroll page</title>
+<center><h2>Payroll statments</h2></center>
+</head>
+<body>
+<form action=""method="POST">
+<table border="0">
+<tr>
+<td>Employee Name</td>
+<td><input type="text"name="name"></td>
+</tr>
+<tr>
+<td>Designation</td>
+<td><select name="desig">
+<option>(Please Select)</option>
+<option>Manager</option>
+<option>Supervisor</option>
+<option>Clerk</option>
+<option>Peon</option>
+</select>
+</td>
+</tr>
+<tr>
+<td>Basic salary</td>
+<td><input type="text"name="salary"></td>
+</tr>
+<tr>
+<td>
+</td>
+<td><input type="submit"value="submit">
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>
+<?php
+if($_POST)
+{
+$ename=$_POST["name"];
+$designation=$_POST["desig"];
+$basic=$_POST["salary"];
+if(is_numeric($basic))
+{
+if($basic!=NULL)
+{
+switch($designation)
+{
+case"Manager":
+$hra=($basic*25)/100;
+$conv=1000;
+$extra=500;
+$gross=$hra+$conv+$extra+$basic;
+if($gross<=2000)
+$intax=$gross;
+elseif($gross>2000&&$gross<4000)
+$intax=($gross*3)/100;
+elseif($gross>4000&&$gross<5000)
+$intax=($gross*5)/100;
+elseif($gross>5000)
+$intax=($gross*8)/100;
+$net=$gross-$intax;
+echo"<b>Employee Name:</b>$ename<br>";
+echo"<b>Designation:</b>$designation<br>";
+echo"<b>Salary:</b>$net<br>";
+break;
+case"Supervisor":
+$hra=($basic*25)/100;
+$conv=750;
+$extra=200;
+$gross=$hra+$conv+$extra+$basic;
+if($gross<=2000)
+$intax=$gross;
+elseif($gross>2000&&$gross<4000)
+$intax=($gross*3)/100;
+elseif($gross>4000&&$gross<5000)
+$intax=($gross*5)/100;
+elseif($gross>5000)
+$intax=($gross*8)/100;
+$net=$gross-$intax;
+echo"<b>Employee Name:</b>$ename<br>";
+echo"<b>Designation:</b>$designation<br>";
+echo"<b>Salary:</b>$net<br>";
+break;
+case"Clerk":
+$hra=($basic*25)/100;
+$conv=500;
+$extra=100;
+$gross=$hra+$conv+$extra+$basic;
+if($gross<=2000)
+$intax=$gross;
+elseif($gross>2000&&$gross<4000)
+$intax=($gross*3)/100;
+elseif($gross>4000&&$gross<5000)
+$intax=($gross*5)/100;
+elseif($gross>5000)
+$intax=($gross*8)/100;
+$net=$gross-$intax;
+echo"<b>Employee Name:</b>$ename<br>";
+echo"<b>Designation:</b>$designation<br>";
+echo"<b>Salary:</b>$net<br>";
+break;
+case"Peon":
+$hra=($basic*25)/100;
+$conv=250;
+$extra=0;
+$gross=$hra+$conv+$extra+$basic;
+if($gross<=2000)
+$intax=$gross;
+elseif($gross>2000&&$gross<4000)
+$intax=($gross*3)/100;
+elseif($gross>4000&&$gross<5000)
+$intax=($gross*5)/100;
+elseif($gross>5000)
+$intax=($gross*8)/100;
+$net=$gross-$intax;
+echo"<b>Employee Name:</b>$ename<br>";
+echo"<b>Designation:</b>$designation<br>";
+echo"<b>Salary:</b>$net<br>";
+break;
+default:
+echo("Invalid Designation! tryagain.....");
+}
+}
+}
+}
+?></textarea>
+
+<textarea id="code6" hidden><html>
+<body>
+<form action="" method="POST">
+Choose your Favourite Fruit<br><br>
+<select name="f">
+<option value="....">(Please select)</option>
+<option value="Grape">Grape</option>
+<option value="banana">Banana</option>
+<option value="chicku">chicku</option>
+<option value="apple">Apple</option>
+<option value="orange">Orange</option>
+<option value="pineapple">Pineaplle</option>
+</select><br><br>
+<input type="submit" value="select">
+</form>
+</body>
+</html>
+<?php
+if($_POST)
+{
+echo "<h2>You Have indicated that you like</h2>"; echo $_POST["f"];
+}
+?></textarea>
+
+<textarea id="code7" hidden><html>
+<body bgcolor="yellow">
+<center><h2> Last visited time on the web page</h2></center>
+<br>
+<?php
+$inTwoMonths = 60 * 60 * 24 * 60 + time();
+setcookie('lastVisit', date("G:i - m/d/y"), $inTwoMonths);
+if(isset($_COOKIE['lastVisit']))
+{
+$visit = $_COOKIE['lastVisit'];
+echo "Your last visit was - ". $visit;
+}
+else
+echo "You've got some stale cookies!";
+?>
+</body>
+</html></textarea>
+
+<textarea id="code8" hidden><html>
+<head>
+<title>Product</title>
+</head>
+<body>
+<h1><center>List of Products</center></h1>
+<form method="POST" action="">
+Item Code:<input type="text" name="icode"/><br><br><br>
+Item Name:<input type="text" name="iname"/><br><br><br>
+Unit Price:<input type="text" name="iprice"/><br><br><br>
+<input type="submit" value="Display">
+</form>
+</body>
+</html>
+<?php
+if($_POST)
+{
+$no=$_POST['icode'];
+$name=$_POST['iname'];
+$price=$_POST['iprice'];
+$con=pg_connect("host=localhost dbname=product user=postgres password=123");
+if($con){
+echo"Successfully Connected.......";
+$qry="insert into product(itemcode,itemname,unitprice)values($no,'$name',$price)";
+$result=pg_query($con,$qry);
+$qry1="select * from product";
+$result1=pg_query($con,$qry1);
+while($row=pg_fetch_row($result1)){
+echo"<br>\n";
+echo"item no:$row[0] item name:$row[1] unit price:$row[2]";}
+}
+}
+?></textarea>
+
+<textarea id="code9" hidden><html>
+<head>
+</head>
+<body>
+<form action="" method="POST">
+enter string to reverse:<input type="text" name="rev"><br><br>
+<input type="submit" value="submit">
+</form>
+</body>
+</html>
+<?php
+if( $_POST )
+{
+$strrev = $_POST[ 'rev' ];
+$strreverse = strrev($strrev);
+echo "<b>reverse of a string is: </b>$strreverse<br>";
+}
+?></textarea>
+
+<textarea id="code10" hidden><html>
+<body>
+<form action = "" method = "POST" enctype = "multipart/form-data">
+Select a File <input type ="file" name = "image" /><br>
+<input type = "submit"/>
+</form>
+</body>
+</html>
+<?php
+if(isset($_FILES['image'])){
+echo "File Name: ".$_FILES['image']['name']."<br>";
+echo "File Size: ".$_FILES['image']['size']."<br>";
+echo "File Type: ".$_FILES['image']['type']."<br>";
+echo"<br>Success Uploaded.....";
+}
+?></textarea>
+
+<script>
+const TOTAL_ITEMS = 10;
+const hideTimers = {};
+
+function getCode(id) {
+  const el = document.getElementById("code" + id);
+  if (!el) return "";
+  return el.value.replace(/&lt;\/textarea>/g, "</textarea>");
+}
+
+function showPopup(id) {
+  const btn = document.getElementById("btn" + id);
+  const popup = document.getElementById("hoverContent" + id);
+  if (!btn || !popup) return;
+  clearTimeout(hideTimers[id]);
+  popup.style.display = "block";
+  positionPopup(id);
+}
+
+function positionPopup(id) {
+  const btn = document.getElementById("btn" + id);
+  const popup = document.getElementById("hoverContent" + id);
+  if (!btn || !popup) return;
+
+  const btnRect = btn.getBoundingClientRect();
+  popup.style.left = (btnRect.right + 12) + "px";
+  popup.style.top = btnRect.top + "px";
+
+  const popupRect = popup.getBoundingClientRect();
+  if (popupRect.right > window.innerWidth - 8) {
+    popup.style.left = Math.max(8, btnRect.left - popupRect.width - 12) + "px";
+  }
+  const maxTop = window.innerHeight - popupRect.height - 8;
+  popup.style.top = Math.max(8, Math.min(btnRect.top, maxTop)) + "px";
+}
+
+function hidePopup(id) {
+  const popup = document.getElementById("hoverContent" + id);
+  if (!popup) return;
+  popup.style.display = "none";
+}
+
+function scheduleHidePopup(id) {
+  clearTimeout(hideTimers[id]);
+  hideTimers[id] = setTimeout(function () {
+    const popup = document.getElementById("hoverContent" + id);
+    if (!popup || popup.matches(":hover")) return;
+    hidePopup(id);
+  }, 120);
+}
+
+function fallbackCopy(text) {
+  const temp = document.createElement("textarea");
+  temp.value = text;
+  temp.setAttribute("readonly", "");
+  temp.style.position = "fixed";
+  temp.style.left = "-9999px";
+  document.body.appendChild(temp);
+  temp.focus();
+  temp.select();
+  document.execCommand("copy");
+  document.body.removeChild(temp);
+}
+
+async function copyCode(id) {
+  const text = getCode(id);
+  if (!text) return;
+
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+    } else {
+      fallbackCopy(text);
+    }
+  } catch (e) {
+    fallbackCopy(text);
+  }
+
+  const btn = document.getElementById("btn" + id);
+  if (btn) btn.classList.add("copied");
+}
+
+window.copyCode = copyCode;
+
+for (let i = 1; i <= TOTAL_ITEMS; i++) {
+  const btn = document.getElementById("btn" + i);
+  const popup = document.getElementById("hoverContent" + i);
+  if (!btn || !popup) continue;
+
+  btn.addEventListener("mouseenter", function () {
+    showPopup(i);
+  });
+  btn.addEventListener("mouseleave", function () {
+    scheduleHidePopup(i);
+  });
+  btn.addEventListener("click", function () {
+    copyCode(i);
+  });
+
+  popup.addEventListener("mouseenter", function () {
+    clearTimeout(hideTimers[i]);
+  });
+  popup.addEventListener("mouseleave", function () {
+    hidePopup(i);
+  });
+}
+
+window.addEventListener("scroll", function () {
+  for (let i = 1; i <= TOTAL_ITEMS; i++) {
+    const popup = document.getElementById("hoverContent" + i);
+    if (popup && popup.style.display === "block") {
+      positionPopup(i);
+    }
+  }
+});
+
+window.addEventListener("resize", function () {
+  for (let i = 1; i <= TOTAL_ITEMS; i++) {
+    const popup = document.getElementById("hoverContent" + i);
+    if (popup && popup.style.display === "block") {
+      positionPopup(i);
+    }
+  }
+});
+</script>
+
+</body>
+</html>

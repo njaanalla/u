@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hover Buttons</title>
+
+<style>
+body{
+    margin:0;
+    padding:40px 0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    background:#000;
+    min-height:100vh;
+}
+.button-container{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+.btn{
+    width:300px;
+    height:50px;
+    background:#141414;
+    color:#fff;
+    border:none;
+    font-size:16px;
+    cursor:pointer;
+    transition:background 0.25s;
+}
+
+/* copied state */
+.btn.copied{
+    background:#303030;
+}
+
+p{color:#fff;}
+
+.hover-content{
+    display:none;
+    position:fixed;
+    width:min(90vw,640px);
+    max-width:640px;
+    background:#101010;
+    color:#fff;
+    border:1px solid #2f2f2f;
+    border-radius:10px;
+    padding:16px 18px;
+    z-index:9999;
+    cursor:pointer;
+    box-shadow:0 12px 28px rgba(0,0,0,0.45);
+}
+.hover-content p{
+    margin:0;
+}
+
+.back-btn{
+    position:fixed;
+    top:15px;
+    left:15px;
+    background:#141414;
+    color:#fff;
+    padding:8px 14px;
+    text-decoration:none;
+    border-radius:6px;
+    font-size:14px;
+    border:1px solid #2f2f2f;
+}
+.back-btn:hover{
+    background:#2a2a2a;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- BACK BUTTON ADD HERE -->
+<a href="index.html" class="back-btn">← Back</a>
+
+<div class="button-container">
+
+
+
+<div class="button-container">
+<button class="btn" id="btn1">1</button>
+<button class="btn" id="btn2">2</button>
+<button class="btn" id="btn3">3</button>
+<button class="btn" id="btn4">4</button>
+<button class="btn" id="btn5">5</button>
+<button class="btn" id="btn6">6</button>
+<button class="btn" id="btn7">7</button>
+<button class="btn" id="btn8">8</button>
+<button class="btn" id="btn9">9</button>
+<button class="btn" id="btn10">10</button>
+<button class="btn" id="btn11">11</button>
+<button class="btn" id="btn12">12</button>
+<button class="btn" id="btn13">13</button>
+<button class="btn" id="btn14">14</button>
+<button class="btn" id="btn15">15</button>
+<button class="btn" id="btn16">16</button>
+<button class="btn" id="btn17">17</button>
+<button class="btn" id="btn18">18</button>
+</div>
+
+<!-- QUESTIONS -->
+
+
+
+    <div class="hover-content" id="hoverContent1" onclick="copyCode(1)">
+<p><strong>1. Write a program to find the sum, difference, product, quotient and remainder of two numbers passed as command line argument.</strong></p>
+</div>
+
+    <div class="hover-content" id="hoverContent2" onclick="copyCode(2)">
+<p><strong>2. Given the sides of a triangle, write a program to check whether the triangle is equilateral, isosceles or scalene and find its area.</strong></p>
+</div>
+
+    <div class="hover-content" id="hoverContent3" onclick="copyCode(3)">
+<p><strong>3. Read an array of 10 or more numbers and write a program to find the<br>a) Smallest element in the array<br>b) Largest element in the array<br>c) Second largest element in the array</strong></p>
+</div>
+
+    <div class="hover-content" id="hoverContent4" onclick="copyCode(4)">
+<p><strong>4. Write a program to perform base conversion<br>a) Integer to binary<br>b) Integer to Octal<br>c) Integer to Hexadecimal</strong></p>
+</div>
+
+    <div class="hover-content" id="hoverContent5" onclick="copyCode(5)">
+<p><strong>5. Write a program to merge two arrays.</strong></p>
+</div>
+
+    <div class="hover-content" id="hoverContent6" onclick="copyCode(6)">
+<p><strong>6. Java Programming Code to Find HCF LCM of Two Numbers</strong></p>
+</div>
+
+    <div class="hover-content" id="hoverContent7" onclick="copyCode(7)">
+<p><strong>7. Write a program to find the trace and transpose of a matrix.</strong></p>
+</div>
+
+    <div class="hover-content" id="hoverContent8" onclick="copyCode(8)">
+<p><strong>8. Write java program to find the sum of the digits and reverse of a given number using class and objects.</strong></p>
+</div>
+
+    <div class="hover-content" id="hoverContent9" onclick="copyCode(9)">
+<p><strong>9. Write a Java Programming Code to Check given string Anagram or Not.<br>If the two strings are anagram to each other, then one string can be rearranged to form the other string.<br>For Example: abc and cba are anagram.</strong></p>
+</div>
+
+    <div class="hover-content" id="hoverContent10" onclick="copyCode(10)">
+<p><strong>10. Write a Java Program to remove all vowels from a string</strong></p>
+</div>
+        <div class="hover-content" id="hoverContent11" onclick="copyCode(11)">
+<p><strong>11. Create a class Student to read and display the student details.<br>Create another class mark inherit from student to read marks of 5 subjects and find total and average.<br>Write a Java program to display the result of a student.</strong></p>
+</div>
+
+    <div class="hover-content" id="hoverContent12" onclick="copyCode(12)">
+<p><strong>12. Using class and objects, write a java program to find the sum of two complex numbers<br>(Hint: Use object as parameter to function).</strong></p>
+</div>
+
+    <div class="hover-content" id="hoverContent13" onclick="copyCode(13)">
+<p><strong>13. Write a program to count and display total number of objects created to a class<br>(Hint: static members).</strong></p>
+</div>
+
+    <div class="hover-content" id="hoverContent14" onclick="copyCode(14)">
+<p><strong>14. Write a java program to find the volume of cube, rectangular box,<br>cylinder using function overloading.
+</strong></p>
+</div>
+
+    <div class="hover-content" id="hoverContent15" onclick="copyCode(15)">
+<p><strong>15. Create an interface volume with member variable pi and methods readdata () and dispvolume ().<br>Create two classes sphere and cylinder to implement this interface.<br>Write a Java program to find the volume.</strong></p>
+</div>
+
+    <div class="hover-content" id="hoverContent16" onclick="copyCode(16)">
+<p><strong>16.  Write a multi thread java program for displaying odd numbers and even numbers up to a limit<br>(Hint: Implement thread using Runnable interface).</strong></p>
+</div>
+
+    <div class="hover-content" id="hoverContent17" onclick="copyCode(17)">
+<p><strong>17. Create a class Account to deposit and withdraw money from a bank.<br>Create a user defined exception “MinBalExp‟ to be invoked when the withdrawal amountis greater than balance.
+</strong></p>
+</div>
+
+    <div class="hover-content" id="hoverContent18" onclick="copyCode(18)">
+<p><strong>18. Create an AWT application to add, remove items in a list box.</strong></p>
+</div>
+
+
+
+    
+<script type="text/plain" id="codesRaw">
+const codes = {
+  1: "import java.util.Scanner;
+public class Sumdiff
+{
+public static void main(String[] args)
+{
+Scanner in = new Scanner(System.in);
+System.out.print("Input 1st integer: ");
+int firstInt = in.nextInt();
+System.out.print("Input 2nd integer: ");
+int secondInt = in.nextInt();
+System.out.printf("Sum of two integers: %d%n", firstInt + secondInt);
+System.out.printf("Difference of two integers: %d%n", firstInt - secondInt);
+System.out.printf("Product of two integers: %d%n", firstInt * secondInt);
+System.out.printf("Average of two integers: %.2f%n", (double) (firstInt +
+secondInt) / 2);
+System.out.printf("remainder of two integers: %d%n",firstInt %
+secondInt);
+System.out.printf("quotient of two integers: %d%n",firstInt / secondInt);
+System.out.printf("Distance of two integers: %d%n", Math.abs(firstInt -
+secondInt));
+System.out.printf("Max integer: %d%n", Math.max(firstInt, secondInt));
+System.out.printf("Min integer: %d%n", Math.min(firstInt, secondInt));
+}
+}",
+
+  2: "import java.util.Scanner;
+public class Triarea2 {
+private static Scanner sc;
+private static double Area;
+public static void main(String[] args) {
+double a, b, c;
+sc = new Scanner(System.in);
+System.out.println("\n Please Enter Three sides of triangle: ");
+a = sc.nextDouble();
+b = sc.nextDouble();
+c = sc.nextDouble();
+if(a==b && b==c)
+System.out.println("Equilateral");
+else if ((a==b && b!=c ) || (a!=b && c==a) || (c==b && c!=a))
+System.out.println("Isosceles");
+else if(a!=b && b!=c && c!=a)
+System.out.println("Scalene");
+Area = AreaofaTriangle(a, b, c);
+System.out.format("\n The Area of triangle = %.2f\n",Area);
+}
+public static double AreaofaTriangle( double a, double b, double c ) {
+double s;
+s = (a + b + c)/2;
+Area = Math.sqrt(s*(s-a)*(s-b)*(s-c));
+return Area;
+}
+}",
+
+  3: "import java.util.Scanner;
+public class Array
+{
+public static void main(String[] args)
+{
+int n, temp;
+Scanner s = new Scanner(System.in);
+System.out.print("Enter no. of elements you want in array(Minimum 10):");
+n = s.nextInt();
+int a[] = new int[n];
+System.out.println("Enter all the elements:");
+for (int i = 0; i < n; i++)
+{
+a[i] = s.nextInt();
+}
+for (int i = 0; i < n; i++)
+{
+for (int j = i + 1; j < n; j++)
+{
+if (a[i] > a[j])
+{
+temp = a[i];
+a[i] = a[j];
+a[j] = temp;
+}
+}
+}
+System.out.println("Largest:"+a[n-1]);
+System.out.println("Second Largest:"+a[n-2]);
+System.out.println("Smallest:"+a[0]);
+}
+}",
+
+  4: "import java.util.*;
+class Baseconversion
+{
+Scanner scan;
+int num;
+void getVal()
+{
+System.out.println("Decimal to Hexadecimal,Octal and Binary");
+scan= new Scanner(System.in);
+System.out.println("\nEnter the number:");
+num=Integer.parseInt(scan.nextLine());
+}
+void convert()
+{
+String hexa=Integer.toHexString(num);
+System.out.println("HexaDecimal value is:" + hexa);
+String octal=Integer.toOctalString(num);
+System.out.println("Octal value is:" + octal);
+String binary=Integer.toBinaryString(num);
+System.out.println("Binary value is:"+binary);
+}}
+class Decimal_Conversion
+{
+public static void main(String args[])
+{
+Baseconversion obj=new Baseconversion();
+obj.getVal();
+obj.convert();
+}
+}",
+
+  5: "import java.util.Arrays;
+import java.lang.*;
+public class MergeArray1
+{
+public static void main(String[] args)
+{
+int[] firstArray = {23,45,12,78,4,90,1};
+int[] secondArray = {77,11,45,88,32,56,3};
+int fal = firstArray.length;
+int sal = secondArray.length;
+int[] result = new int[fal + sal];
+System.arraycopy(firstArray, 0, result, 0, fal);
+System.arraycopy(secondArray, 0, result, fal, sal);
+System.out.println(Arrays.toString(result));
+}
+}",
+
+  6: "import java.util.Scanner;
+public class Hcflcm
+{
+public static void main(String args[])
+{
+int a, b, x, y, t, hcf, lcm;
+Scanner scan = new Scanner(System.in);
+System.out.print("Enter Two Number : ");
+x = scan.nextInt();
+y = scan.nextInt();
+a = x;
+b = y;
+while(b != 0)
+{
+t = b;
+b = a%b;
+a = t;
+}
+hcf = a;
+lcm = (x*y)/hcf;
+System.out.print("HCF = " +hcf);
+System.out.print("\nLCM = " +lcm);
+}
+}",
+
+  7: "import java.util.*;
+import java.io.*;
+class Matrix1
+{
+public static void main(String args[])throws IOException
+{
+DataInputStream in=new DataInputStream(System.in);
+int a[][]=new int[10][10];
+int sum=0;
+int i,j;
+int row,column,temp;
+System.out.println("Enter the no:f rows:");
+row=Integer.parseInt(in.readLine());
+System.out.println("Enter the no:of column:");
+column=Integer.parseInt(in.readLine());
+System.out.println("Enter the elements for the matrix:");
+for(i=0;i<row;i++)
+for(j=0;j<column;j++)
+a[i][j]=Integer.parseInt(in.readLine());
+System.out.println("The matrix is:");
+for(i=0;i<row;i++)
+{
+for(j=0;j<column;j++)
+System.out.print(a[i][j]+"\t");
+System.out.println();
+}
+System.out.println("The transpose of the matrix is:");
+temp=row;
+row=column;
+column=temp;
+for(i=0;i<row;i++)
+{
+for(j=0;j<column;j++)
+System.out.print(a[j][i]+"\t");
+System.out.println();
+}
+if(row!=column)
+System.out.println("it is not a square matrix!!There is no trace for the matrix!!!");
+else
+{
+for(i=0;i<row;i++)
+for(j=0;j<column;j++)
+if(i==j)
+sum=sum+a[i][j];
+System.out.println("The sum of the trace is:"+sum);
+}
+}
+}",
+
+  8: "import java.util.Scanner;
+public class Sr
+{
+public static void main(String[] args)
+{
+int n, a, m = 0, sum = 0;
+Scanner s = new Scanner(System.in);
+System.out.print("Enter any number:");
+n = s.nextInt();
+do
+{
+a = n % 10;
+m = m * 10 + a;
+sum = sum + a;
+n = n / 10;
+}
+while( n > 0);
+System.out.println("Reverse:"+m);
+System.out.println("Sum of digits:"+sum);
+}
+}
+",
+
+  9: "import java.util.Scanner;
+public class Anagram
+{
+public static void main(String[] input)
+{
+String str1, str2;
+int len, len1, len2, i, j, found=0, not_found=0;
+Scanner scan = new Scanner(System.in);
+System.out.print("Enter First String : ");
+str1 = scan.nextLine();
+System.out.print("Enter Second String : ");
+str2 = scan.nextLine();
+len1 = str1.length();
+len2 = str2.length();
+if(len1 == len2)
+{
+len = len1;
+for(i=0; i<len; i++)
+{
+found = 0;
+for(j=0; j<len; j++)
+{
+if(str1.charAt(i) == str2.charAt(j))
+{
+found = 1;
+break;
+}
+}
+if(found == 0)
+{
+not_found = 1;
+break;
+}
+}
+if(not_found == 1)
+{
+System.out.print("Strings are not Anagram to Each Other..!!");
+}
+else
+{
+System.out.print("Strings are Anagram");
+}
+}
+else
+{
+System.out.print("Both Strings Must have the same number of Character to be an Anagram");
+}
+}
+}
+",
+
+  10: "import java.util.Scanner;
+public class Removevowels
+{
+public static void main(String args[])
+{
+String strOrig, strNew;
+Scanner scan = new Scanner(System.in);
+System.out.print("Enter a String : ");
+strOrig = scan.nextLine();
+System.out.print("Removing Vowels from The String [" +strOrig+ "]\n");
+strNew = strOrig.replaceAll("[aeiouAEIOU]", "");
+System.out.print("All Vowels Removed Successfully..!!\nNow the String is :\n");
+System.out.print(strNew);
+}
+}",
+
+  11: "import java.lang.*;
+import java.io.*;
+class Student
+{
+int roll_no;
+}
+class Result extends Student
+{
+String name;
+int sub1,sub2,sub3,sub4,sub5;
+int total;
+float per;
+void read() throws IOException
+{
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+System.out.println ("Enter Name of Student");
+name = br.readLine();
+System.out.println ("Enter Roll No. of Student");
+roll_no = Integer.parseInt(br.readLine());
+System.out.println ("Enter marks out of 100 of 1st subject");
+sub1 = Integer.parseInt(br.readLine());
+System.out.println ("Enter marks out of 100 of 2nd subject");
+sub2 = Integer.parseInt(br.readLine());
+System.out.println ("Enter marks out of 100 of 3rd subject");
+sub3 = Integer.parseInt(br.readLine());
+System.out.println ("Enter marks out of 100 of 4th subject");
+sub4 = Integer.parseInt(br.readLine());
+System.out.println ("Enter marks out of 100 of 5th subject");
+sub5 = Integer.parseInt(br.readLine());
+}
+void display()
+{
+total=sub1+sub2+sub3+sub4+sub5;
+per=(total*100)/500;
+System.out.println ("Roll No. = "+roll_no);
+System.out.println ("Name = "+name);
+System.out.println ("Marks of 1st Subject = "+sub1);
+System.out.println ("Marks of 2nd Subject = "+sub2);
+System.out.println ("Marks of 3rd Subject = "+sub3);
+System.out.println ("Marks of 4th Subject = "+sub4);
+System.out.println ("Marks of 5th Subject = "+sub5);
+System.out.println ("Total Marks = "+total);
+System.out.println ("Percentage = "+per+"%");
+}
+}
+class Studresult11
+{
+public static void main(String args[]) throws IOException
+{
+Result s=new Result();
+s.read();
+s.display();
+}
+}",
+
+  12: "class Complex
+{
+int Real,Imag;
+Complex()
+{}
+Complex(int Real1,int Imag1)
+{
+Real=Real1;
+Imag=Imag1;
+}
+Complex AddComplex(Complex C1,Complex C2)
+{
+Complex CSum=new Complex();
+CSum.Real=C1.Real+C2.Real;
+CSum.Imag=C1.Imag+C2.Imag;
+return CSum;
+}
+}
+class Complexmain
+{
+public static void main(String[] a)
+{
+Complex C1=new Complex(4,8);
+Complex C2=new Complex(5,7);
+Complex C3=new Complex();
+C3=C3.AddComplex(C1,C2);
+System.out.println("SUM:" + C3.Real +"+i" + C3.Imag);
+}
+}",
+
+  13: "class Test
+{
+static int noOfObjects = 0;
+{
+noOfObjects += 1;
+}
+public Test()
+{
+}
+public Test(int n)
+{
+}
+public Test(String s)
+{
+}
+public static void main(String args[])
+{
+Test t1 = new Test();
+Test t2 = new Test(5);
+Test t3 = new Test("GFG");
+System.out.println(Test.noOfObjects);
+}
+}",
+
+  14: "class Overload {
+double area(float l, float w, float h) {
+return l * w * h;
+}
+double area(float l) {
+return l * l * l;
+}
+double area(float r, float h) {
+return 3.1416 * r * r * h;
+}
+}
+public class MethodOverloading {
+public static void main(String args[]) {
+Overload overload = new Overload();
+double rectangleBox = overload.area(5, 8, 9);
+System.out.println("Area of ractangular box is " + rectangleBox);
+System.out.println("");
+double cube = overload.area(5);
+System.out.println("Area of cube is " + cube);
+System.out.println("");
+double cylinder = overload.area(6, 12);
+System.out.println("Area of cylinder is " + cylinder);
+}
+}",
+
+  15: "import java.*;
+import java.util.Scanner;
+interface vol1
+{
+final static float pi=3.14F;
+void readdata();
+double dispvolume();
+}
+class sphere implements vol1{
+float r;
+public void readdata()
+{
+Scanner scan=new Scanner(System.in);
+System.out.println("enter the radius:");
+r=scan.nextFloat();
+}
+public double dispvolume()
+{
+return(1.33*pi*r*r*r);
+}
+}
+class cylinder implements vol1
+{
+float rr,h;
+public void readdata()
+{
+Scanner scan1=new Scanner(System.in);
+System.out.println("enter the radius:");
+rr=scan1.nextFloat();
+System.out.println("enter the height:");
+h=scan1.nextFloat();
+}
+public double dispvolume()
+{
+return(pi*rr*rr*h);
+}
+}
+class volume1
+{
+public static void main(String args[])
+{
+sphere s=new sphere();
+vol1 vv;
+vv=s;
+System.out.println("the volume of sphere are:");
+vv.readdata();
+System.out.println("volume="+vv.dispvolume());
+cylinder c=new cylinder();
+vv=c;
+System.out.println("the volume of cylinder are:");
+vv.readdata();
+System.out.println("volume="+vv.dispvolume());
+}
+}",
+
+  16: "import java. lang.*;
+public class OddEvenThread
+{
+public static void main(String[] args) {
+Runnable r1 = new Runnable12(true);
+Runnable r2 = new Runnable12(false);
+Thread t1 = new Thread(r1);
+Thread t2 = new Thread(r2);
+t1.start();
+t2.start();
+}
+}
+class Runnable12 implements Runnable {
+private boolean isOdd;
+Runnable12(boolean isOdd) {
+this.isOdd = isOdd;
+}
+public void run() {
+if (isOdd) {
+for (int i = 1; i <= 11; i += 2) {
+System.out.println(i);
+}
+} else {
+for (int i = 0; i < 11; i += 2) {
+System.out.println(i);
+}
+}
+}
+}",
+
+  17: "import java.util.Scanner;
+import java.lang.*;
+class UserDefinedException2
+{
+public static void main(String args[])
+{
+Account acct = new Account();
+System.out.println("Current balance : " + acct.balance());
+System.out.println("Withdrawing 200");
+acct.withdraw(200);
+System.out.println("Current balance : " + acct.balance());
+acct.withdraw(1000);
+}
+}
+class Account
+{
+private int balance = 1000;
+public int balance()
+{
+return balance;
+}
+public void withdraw(int amount) throws NotSufficientFundException
+{
+if (amount > balance)
+{
+throw new NotSufficientFundException( String.format("Current balance %d is
+less than requested amount %d", balance, amount));
+}
+balance = balance - amount;
+}
+public void deposit(int amount)
+{
+if (amount <= 0)
+{
+throw new IllegalArgumentException( String.format("Invalid deposit amount
+%s", amount));
+}
+}
+}
+class NotSufficientFundException extends RuntimeException
+{
+private String message;
+public NotSufficientFundException(String message)
+{
+this.message = message;
+}
+public NotSufficientFundException(Throwable cause, String message)
+{
+super(cause);
+this.message = message;
+}
+public String getMessage()
+{
+return message;
+}
+}",
+
+  18: "import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+public class Books extends JFrame {
+private DefaultListModel Books;
+private JList list;
+public Books()
+{
+super( "Favorite books" );
+Books = new DefaultListModel();
+Books.addElement( "c programming" );
+Books.addElement( "java programming" );
+Books.addElement( "php programming" );
+Books.addElement( "network" );
+Books.addElement( "fundamentals" );
+list = new JList( Books );
+list.setSelectionMode(
+ListSelectionModel.SINGLE_SELECTION );
+JButton addButton = new JButton( "Add books" );
+addButton.addActionListener(
+new ActionListener() {
+public void actionPerformed( ActionEvent event )
+{
+String name = JOptionPane.showInputDialog(
+Books.this, "Enter Name" );
+Books.addElement( name );
+}
+}
+);
+JButton removeButton =
+new JButton( "Remove Selected books" );
+removeButton.addActionListener(
+new ActionListener() {
+public void actionPerformed( ActionEvent event )
+{
+Books.removeElement(
+list.getSelectedValue() );
+}
+}
+);
+JPanel inputPanel = new JPanel();
+inputPanel.add( addButton );
+inputPanel.add( removeButton );
+Container container = getContentPane();
+container.add( list, BorderLayout.CENTER );
+container.add( inputPanel, BorderLayout.NORTH );
+setDefaultCloseOperation( EXIT_ON_CLOSE );
+setSize( 400, 300 );
+setVisible( true );
+}
+public static void main( String args[] )
+{
+new Books();
+}
+}"
+};
+
+const TOTAL_ITEMS = 18;
+const hideTimers = {};
+
+function positionPopup(id) {
+  const btn = document.getElementById("btn" + id);
+  const popup = document.getElementById("hoverContent" + id);
+  if (!btn || !popup) return;
+
+  const btnRect = btn.getBoundingClientRect();
+  popup.style.left = (btnRect.right + 12) + "px";
+  popup.style.top = btnRect.top + "px";
+
+  const popupRect = popup.getBoundingClientRect();
+  if (popupRect.right > window.innerWidth - 8) {
+    popup.style.left = Math.max(8, btnRect.left - popupRect.width - 12) + "px";
+  }
+  const maxTop = window.innerHeight - popupRect.height - 8;
+  popup.style.top = Math.max(8, Math.min(btnRect.top, maxTop)) + "px";
+}
+
+function showPopup(id) {
+  const popup = document.getElementById("hoverContent" + id);
+  if (!popup) return;
+  clearTimeout(hideTimers[id]);
+  popup.style.display = "block";
+  positionPopup(id);
+}
+
+function hidePopup(id) {
+  const popup = document.getElementById("hoverContent" + id);
+  if (!popup) return;
+  popup.style.display = "none";
+}
+
+function scheduleHidePopup(id) {
+  clearTimeout(hideTimers[id]);
+  hideTimers[id] = setTimeout(function () {
+    hidePopup(id);
+  }, 120);
+}
+
+function fallbackCopy(text) {
+  const temp = document.createElement("textarea");
+  temp.value = text;
+  temp.setAttribute("readonly", "");
+  temp.style.position = "fixed";
+  temp.style.left = "-9999px";
+  document.body.appendChild(temp);
+  temp.focus();
+  temp.select();
+  document.execCommand("copy");
+  document.body.removeChild(temp);
+}
+
+function copyCode(id) {
+  const text = codes[id];
+  if (typeof text !== "string") return;
+
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).catch(function () {
+      fallbackCopy(text);
+    });
+  } else {
+    fallbackCopy(text);
+  }
+
+  const btn = document.getElementById("btn" + id);
+  if (btn) {
+    btn.classList.add("copied");
+  }
+}
+
+for (let i = 1; i <= TOTAL_ITEMS; i++) {
+  const btn = document.getElementById("btn" + i);
+  const popup = document.getElementById("hoverContent" + i);
+  if (!btn || !popup) continue;
+
+  btn.addEventListener("mouseenter", function () {
+    showPopup(i);
+  });
+  btn.addEventListener("mouseleave", function () {
+    scheduleHidePopup(i);
+  });
+  btn.addEventListener("click", function () {
+    copyCode(i);
+  });
+
+  popup.addEventListener("mouseenter", function () {
+    clearTimeout(hideTimers[i]);
+  });
+  popup.addEventListener("mouseleave", function () {
+    hidePopup(i);
+  });
+}
+
+window.addEventListener("scroll", function () {
+  for (let i = 1; i <= TOTAL_ITEMS; i++) {
+    const popup = document.getElementById("hoverContent" + i);
+    if (popup && popup.style.display === "block") {
+      positionPopup(i);
+    }
+  }
+});
+
+window.addEventListener("resize", function () {
+  for (let i = 1; i <= TOTAL_ITEMS; i++) {
+    const popup = document.getElementById("hoverContent" + i);
+    if (popup && popup.style.display === "block") {
+      positionPopup(i);
+    }
+  }
+});
+</script>
+
+<script>
+const TOTAL_ITEMS = 18;
+const hideTimers = {};
+
+function parseCodes(raw) {
+  const parsed = {};
+  const normalized = raw.replace(/\r\n/g, "\n");
+  const start = normalized.indexOf("const codes = {");
+  if (start === -1) return parsed;
+
+  const bodyStart = normalized.indexOf("{", start);
+  if (bodyStart === -1) return parsed;
+
+  const tail = normalized.slice(bodyStart);
+  const endMatch = tail.match(/\n};\n\s*const TOTAL_ITEMS/);
+  if (!endMatch || typeof endMatch.index !== "number") return parsed;
+
+  const bodyEnd = bodyStart + endMatch.index;
+  const body = normalized.slice(bodyStart + 1, bodyEnd);
+  const entryRegex = /(?:^|\n)\s*(\d+): "([\s\S]*?)(?=\n\s*\d+:\s"|$)/g;
+  let match;
+
+  while ((match = entryRegex.exec(body)) !== null) {
+    const id = Number(match[1]);
+    const code = match[2].replace(/"\s*,?\s*$/, "");
+    parsed[id] = code;
+  }
+
+  return parsed;
+}
+
+const codesRawElement = document.getElementById("codesRaw");
+const codes = codesRawElement ? parseCodes(codesRawElement.textContent) : {};
+
+function positionPopup(id) {
+  const btn = document.getElementById("btn" + id);
+  const popup = document.getElementById("hoverContent" + id);
+  if (!btn || !popup) return;
+
+  const btnRect = btn.getBoundingClientRect();
+  popup.style.left = (btnRect.right + 12) + "px";
+  popup.style.top = btnRect.top + "px";
+
+  const popupRect = popup.getBoundingClientRect();
+  if (popupRect.right > window.innerWidth - 8) {
+    popup.style.left = Math.max(8, btnRect.left - popupRect.width - 12) + "px";
+  }
+  const maxTop = window.innerHeight - popupRect.height - 8;
+  popup.style.top = Math.max(8, Math.min(btnRect.top, maxTop)) + "px";
+}
+
+function showPopup(id) {
+  const popup = document.getElementById("hoverContent" + id);
+  if (!popup) return;
+  clearTimeout(hideTimers[id]);
+  popup.style.display = "block";
+  positionPopup(id);
+}
+
+function hidePopup(id) {
+  const popup = document.getElementById("hoverContent" + id);
+  if (!popup) return;
+  popup.style.display = "none";
+}
+
+function scheduleHidePopup(id) {
+  clearTimeout(hideTimers[id]);
+  hideTimers[id] = setTimeout(function () {
+    hidePopup(id);
+  }, 120);
+}
+
+function fallbackCopy(text) {
+  const temp = document.createElement("textarea");
+  temp.value = text;
+  temp.setAttribute("readonly", "");
+  temp.style.position = "fixed";
+  temp.style.left = "-9999px";
+  document.body.appendChild(temp);
+  temp.focus();
+  temp.select();
+  document.execCommand("copy");
+  document.body.removeChild(temp);
+}
+
+function openQuestionImage(id) {
+  window.open("java/java" + id + ".png", "_blank", "noopener");
+}
+
+function copyCode(id) {
+  const text = codes[id];
+  if (typeof text !== "string") return;
+
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).catch(function () {
+      fallbackCopy(text);
+    });
+  } else {
+    fallbackCopy(text);
+  }
+
+  openQuestionImage(id);
+
+  const btn = document.getElementById("btn" + id);
+  if (btn) {
+    btn.classList.add("copied");
+  }
+}
+
+window.copyCode = copyCode;
+
+for (let i = 1; i <= TOTAL_ITEMS; i++) {
+  const btn = document.getElementById("btn" + i);
+  const popup = document.getElementById("hoverContent" + i);
+  if (!btn || !popup) continue;
+
+  btn.addEventListener("mouseenter", function () {
+    showPopup(i);
+  });
+  btn.addEventListener("mouseleave", function () {
+    scheduleHidePopup(i);
+  });
+  btn.addEventListener("click", function () {
+    copyCode(i);
+  });
+
+  popup.addEventListener("mouseenter", function () {
+    clearTimeout(hideTimers[i]);
+  });
+  popup.addEventListener("mouseleave", function () {
+    hidePopup(i);
+  });
+}
+
+window.addEventListener("scroll", function () {
+  for (let i = 1; i <= TOTAL_ITEMS; i++) {
+    const popup = document.getElementById("hoverContent" + i);
+    if (popup && popup.style.display === "block") {
+      positionPopup(i);
+    }
+  }
+});
+
+window.addEventListener("resize", function () {
+  for (let i = 1; i <= TOTAL_ITEMS; i++) {
+    const popup = document.getElementById("hoverContent" + i);
+    if (popup && popup.style.display === "block") {
+      positionPopup(i);
+    }
+  }
+});
+</script>
+
+</body>
+</html>

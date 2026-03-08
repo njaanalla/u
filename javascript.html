@@ -1,15 +1,128 @@
-code 1
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hover Buttons</title>
 
+<style>
+body{
+    margin:0;
+    padding:40px 0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    background:#000;
+    min-height:100vh;
+}
+.button-container{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+.btn{
+    width:300px;
+    height:50px;
+    background:#141414;
+    color:#fff;
+    border:none;
+    font-size:16px;
+    cursor:pointer;
+    transition:background 0.25s;
+}
 
+/* copied state */
+.btn.copied{
+    background:#303030;
+}
 
-<html>
+p{color:#fff;}
+
+.hover-content{
+    display:none;
+    position:fixed;
+    width:min(90vw,640px);
+    max-width:640px;
+    background:#101010;
+    color:#fff;
+    border:1px solid #2f2f2f;
+    border-radius:10px;
+    padding:16px 18px;
+    z-index:9999;
+    cursor:pointer;
+    box-shadow:0 12px 28px rgba(0,0,0,0.45);
+}
+.hover-content p{
+    margin:0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="button-container">
+<button class="btn" id="btn1">1</button>
+<button class="btn" id="btn2">2</button>
+<button class="btn" id="btn3">3</button>
+<button class="btn" id="btn4">4</button>
+<button class="btn" id="btn5">5</button>
+<button class="btn" id="btn6">6</button>
+<button class="btn" id="btn7">7</button>
+<button class="btn" id="btn8">8</button>
+<button class="btn" id="btn9">9</button>
+<button class="btn" id="btn10">10</button>
+</div>
+
+<!-- QUESTIONS -->
+<div class="hover-content" id="hoverContent1" onclick="copyCode(1)">
+<p><strong>1. Write a JavaScript program to check whether a given number is perfect, abundant or deficient.<br>Use alert box to display the output.</strong></p>
+</div>
+
+<div class="hover-content" id="hoverContent2" onclick="copyCode(2)">
+<p><strong>2. Design a form that accepts two integers. Provide 4 buttons for Add, Subtract, Multiply, Divide.<br>Add JavaScript program to add, subtract, multiply and divide the given numbers when these buttons are clicked.<br>Use output element to display the results.</strong></p>
+</div>
+
+<div class="hover-content" id="hoverContent3" onclick="copyCode(3)">
+<p><strong>3. Write a JavaScript program to store different colors in an array and change thebackground color of the page using this array elements.</strong></p>
+</div>
+
+<div class="hover-content" id="hoverContent4" onclick="copyCode(4)">
+<p><strong>4. Write a JavaScript program to create clock with a timing event.</strong></p>
+</div>
+
+<div class="hover-content" id="hoverContent5" onclick="copyCode(5)">
+<p><strong>5. Write a JavaScript Program to validate email based on the following condition.<br> Mail id must contain the @ and . character<br>There must be at least one character before and after the @.<br>There must be at least two characters after . (dot).</strong></p>
+</div>
+
+<div class="hover-content" id="hoverContent6" onclick="copyCode(6)">
+<p><strong>6. Write a JavaScript program for Password validation based on the following condition.<br>Password and confirm password must be same<br>Length of password must be greater than 8 characters</strong></p>
+</div>
+
+<div class="hover-content" id="hoverContent7" onclick="copyCode(7)">
+<p><strong>7. Write a JavaScript Program to create an Array and read values using Prompt popup box and display the sum of elements in an Alert Box.</strong></p>
+</div>
+
+<div class="hover-content" id="hoverContent8" onclick="copyCode(8)">
+<p><strong>8. C Change the text colour and back colour of a TextBox using onfocus and onBlur event.</strong></p>
+</div>
+
+<div class="hover-content" id="hoverContent9" onclick="copyCode(9)">
+<p><strong>9. Write a JavaScript program to display Capital of a country using onchange event.<br>The country is selected from a select box and capital is displayed on a TextBox</strong></p>
+</div>
+
+<div class="hover-content" id="hoverContent10" onclick="copyCode(10)">
+<p><strong>10. Write a JavaScript program to find 1st January be a Sunday between a range of years.</strong></p>
+</div>
+
+<!-- CODE DATA -->
+<textarea id="code1" hidden><html>
 <h2>perfect abendent deficient<h2><br>
 <body>
 <form name=form1>
 <input type="text" name="value1" size=10/>
 <input type="button" value="calculate" onClick='check();'>
 </form>
-<script language="JavaScript">
+&lt;script language="JavaScript">
 function check()
 {
 var num=document.form1.value1.value;
@@ -26,17 +139,11 @@ alert("abendent number");
 else
 alert("deficient number");
 }
-</script>
+&lt;/script>
 </body>
-</html>
+</html></textarea>
 
-
-
-
-code 2
-
-
-<html>
+<textarea id="code2" hidden><html>
 <body>
 <form name =form1>
 enter the first number :
@@ -48,7 +155,7 @@ enter the second number:
 <input type ="button" value="multiplication"onclick="mul()">
 <input type ="button" value="division"onclick="div()">
 </form>
-<script language="javaScript">
+&lt;script language="javaScript">
 function add()
 {
 var num1=document.form1.value1.value;
@@ -77,24 +184,19 @@ var num2=document.form1.value2.value;
 var div=num1/num2;
 document.write("the sum is "+div);
 }
-</script>
+&lt;/script>
 </body>
-</html>
+</html></textarea>
 
-
-
-code 3
-
-
-<html>
+<textarea id="code3" hidden><html>
 <body onmouseout="myArray(4)">
-<script>
+&lt;script>
 function myArray(n)
 {
 var backcolor=["#00ff00","#ff0000","#0000ff","#cce","#cd12ca"];
 document.bgColor=backcolor[n];
 }
-</script>
+&lt;/script>
 <center>
 <a href="#"onmouseenter="myArray(0)">green</a>
 <a href="#"onmouseenter="myArray(1)">Red</a>
@@ -103,20 +205,13 @@ document.bgColor=backcolor[n];
 <h1>changing background color</h1>
 </center>
 </body>
-</html>
+</html></textarea>
 
-
-
-
-code 4
-
-
-
-<html>
+<textarea id="code4" hidden><html>
 <body onload="startTime()">
 <h2>JavaScript Clock with event</h2>
 <div id="txt"></div>
-<script>
+&lt;script>
 function startTime() {
 const today = new Date();
 let h = today.getHours();
@@ -131,20 +226,15 @@ function checkTime(i) {
 if (i < 10) {i = "0" + i}; // add zero in front of numbers < 10
 return i;
 }
-</script>
+&lt;/script>
 </body>
-</html>
+</html></textarea>
 
-
-
-code 5
-
-
-<html>
+<textarea id="code5" hidden><html>
 <head>
 <title>email validation</title>
 </head>
-<script>
+&lt;script>
 function validateemail()
 {
 var x=document.myform.email.value;
@@ -158,7 +248,7 @@ return false;
 }
 else alert(" a valid e-mail address ");
 }
-</script>
+&lt;/script>
 <body>
 <form name="myform" method="" action="" onsubmit="return
 validateemail();">
@@ -166,19 +256,13 @@ Email: <input type="text" name="email"><br/>
 <input type="submit" value="register">
 </form>
 </body>
-</html>
+</html></textarea>
 
-
-
-
-code 6
-
-
-<html>
+<textarea id="code6" hidden><html>
 <head>
 <title> Verification of valid Password </title>
 </head>
-<script>
+&lt;script>
 function verifyPassword() {
 var pw = document.getElementById("pswd").value;
 var pw2 = document.getElementById("pswd2").value;
@@ -197,7 +281,7 @@ else
 alert("Password is correct");
 }
 }
-</script>
+&lt;/script>
 <body>
 <center>
 <h1 style="color:green">password validation</h1>
@@ -214,19 +298,14 @@ alert("Password is correct");
 </form>
 </center>
 </body>
-</html>
+</html></textarea>
 
-
-
-code 7
-
-
-<html>
+<textarea id="code7" hidden><html>
 <head>
 <title>create an array read values using prompt</title>
 </head>
 <body>
-<script>
+&lt;script>
 var arr=[];
 var n=prompt('enter the number of element:');
 for(var i=0;i<n;i++)
@@ -240,16 +319,11 @@ s=s+parseInt(arr[i]);
 }
 alert('full array:'+arr.join(','));
 alert('sum of array:'+s);
-</script>
+&lt;/script>
 </body>
-</html>
+</html></textarea>
 
-
-
-code 8
-
-
-<html>
+<textarea id="code8" hidden><html>
 <head>
 <title>onBlur onFocus</title>
 </head>
@@ -259,7 +333,7 @@ code 8
 <input type="text"id="txt"onFocus="txt_color()" onBlur="txt_back_color()"><br><br>
 <input type="button" value="show">
 </form>
-<script language="Javascript">
+&lt;script language="Javascript">
 function txt_color()
 {
 document.getElementById("txt").style.color="#FF0000";
@@ -270,17 +344,11 @@ function txt_back_color()
 document.getElementById("txt").style.color="#00FF00";
 document.getElementById("txt").style.background="#FF0000";
 }
-</script>
+&lt;/script>
 </body>
-</html>
+</html></textarea>
 
-
-
-
-code 9
-
-
-<html>
+<textarea id="code9" hidden><html>
 <body>
 <p>select a state from the list</p>
 <select id="mySelect" onchange="display()">
@@ -297,24 +365,18 @@ code 9
 <br>
 <br>
 <input type = "text" id="txt">
-<script>
+&lt;script>
 function display()
 {
 var x=document.getElementById("mySelect").value;
 document.getElementById("txt").value=x;
 }
-</script>
+&lt;/script>
 </body>
-</html>
+</html></textarea>
 
-
-
-code 10
-
-
-
-<html>
-<script type="text/javascript">
+<textarea id="code10" hidden><html>
+&lt;script type="text/javascript">
 function jansunday()
 {
 var y1 = Number(document.getElementById('year1').value);
@@ -344,7 +406,7 @@ Sunday on 1st January are :${res}</p>`;
 }
 }
 }
-</script>
+&lt;/script>
 <body>
 <label for="Year1">Year1:</label>
 <input type="number" id="year1" name="Year1"><br><br>
@@ -355,5 +417,132 @@ Get Result
 </button>
 <p id="jan"></p>
 </body>
-</html>
+</html></textarea>
 
+<script>
+const TOTAL_ITEMS = 10;
+const hideTimers = {};
+
+function getCode(id) {
+  const el = document.getElementById("code" + id);
+  return el ? el.value : "";
+}
+
+function showPopup(id) {
+  const btn = document.getElementById("btn" + id);
+  const popup = document.getElementById("hoverContent" + id);
+  if (!btn || !popup) return;
+  clearTimeout(hideTimers[id]);
+  popup.style.display = "block";
+  positionPopup(id);
+}
+
+function positionPopup(id) {
+  const btn = document.getElementById("btn" + id);
+  const popup = document.getElementById("hoverContent" + id);
+  if (!btn || !popup) return;
+
+  const btnRect = btn.getBoundingClientRect();
+  popup.style.left = (btnRect.right + 12) + "px";
+  popup.style.top = btnRect.top + "px";
+
+  const popupRect = popup.getBoundingClientRect();
+  if (popupRect.right > window.innerWidth - 8) {
+    popup.style.left = Math.max(8, btnRect.left - popupRect.width - 12) + "px";
+  }
+  const maxTop = window.innerHeight - popupRect.height - 8;
+  popup.style.top = Math.max(8, Math.min(btnRect.top, maxTop)) + "px";
+}
+
+function hidePopup(id) {
+  const popup = document.getElementById("hoverContent" + id);
+  if (!popup) return;
+  popup.style.display = "none";
+}
+
+function scheduleHidePopup(id) {
+  clearTimeout(hideTimers[id]);
+  hideTimers[id] = setTimeout(function () {
+    const popup = document.getElementById("hoverContent" + id);
+    if (!popup || popup.matches(":hover")) return;
+    hidePopup(id);
+  }, 120);
+}
+
+function fallbackCopy(text) {
+  const temp = document.createElement("textarea");
+  temp.value = text;
+  temp.setAttribute("readonly", "");
+  temp.style.position = "fixed";
+  temp.style.left = "-9999px";
+  document.body.appendChild(temp);
+  temp.focus();
+  temp.select();
+  document.execCommand("copy");
+  document.body.removeChild(temp);
+}
+
+async function copyCode(id) {
+  const text = getCode(id);
+  if (!text) return;
+
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+    } else {
+      fallbackCopy(text);
+    }
+  } catch (e) {
+    fallbackCopy(text);
+  }
+
+  const btn = document.getElementById("btn" + id);
+  if (btn) btn.classList.add("copied");
+}
+
+window.copyCode = copyCode;
+
+for (let i = 1; i <= TOTAL_ITEMS; i++) {
+  const btn = document.getElementById("btn" + i);
+  const popup = document.getElementById("hoverContent" + i);
+  if (!btn || !popup) continue;
+
+  btn.addEventListener("mouseenter", function () {
+    showPopup(i);
+  });
+  btn.addEventListener("mouseleave", function () {
+    scheduleHidePopup(i);
+  });
+  btn.addEventListener("click", function () {
+    copyCode(i);
+  });
+
+  popup.addEventListener("mouseenter", function () {
+    clearTimeout(hideTimers[i]);
+  });
+  popup.addEventListener("mouseleave", function () {
+    hidePopup(i);
+  });
+}
+
+window.addEventListener("scroll", function () {
+  for (let i = 1; i <= TOTAL_ITEMS; i++) {
+    const popup = document.getElementById("hoverContent" + i);
+    if (popup && popup.style.display === "block") {
+      positionPopup(i);
+    }
+  }
+});
+
+window.addEventListener("resize", function () {
+  for (let i = 1; i <= TOTAL_ITEMS; i++) {
+    const popup = document.getElementById("hoverContent" + i);
+    if (popup && popup.style.display === "block") {
+      positionPopup(i);
+    }
+  }
+});
+</script>
+
+</body>
+</html>

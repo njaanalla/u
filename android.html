@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Android Codes</title>
+<style>
+body {
+    margin: 0;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #000;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+}
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.split-btn {
+    width: 320px;
+    height: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 200px;   /* space between XML & JAVA */
+    border: 1px solid #2f2f2f;
+    overflow: hidden;
+}
+.half-btn {
+    border: none;
+    background: #141414;
+    color: #fff;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background 0.2s;
+}
+.half-btn + .half-btn {
+    border-left: 1px solid #2f2f2f;
+}
+.half-btn:hover {
+    background: #252525;
+}
+.half-btn.copied {
+    background: #3a3a3a;
+}
+.hover-content {
+    display: none;
+    position: fixed;
+    width: min(90vw, 640px);
+    max-width: 640px;
+    background: #101010;
+    color: #fff;
+    border: 1px solid #2f2f2f;
+    border-radius: 10px;
+    padding: 16px 18px;
+    z-index: 9999;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+    cursor: pointer;
+}
+.hover-content p {
+    margin: 0;
+}
+
+.back-btn{
+    position:fixed;
+    top:15px;
+    left:15px;
+    background:#141414;
+    color:#fff;
+    padding:8px 14px;
+    text-decoration:none;
+    border-radius:6px;
+    font-size:14px;
+    border:1px solid #2f2f2f;
+}
+.back-btn:hover{
+    background:#2a2a2a;
+}
+.pdf-btn{
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    background: #141414;
+    color: #fff;
+    padding: 10px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    border: 1px solid #2f2f2f;
+    transition: background 0.2s, transform 0.15s;
+    z-index: 10000;
+}
+
+.pdf-btn:hover{
+    background: #252525;
+    transform: translateY(-2px);
+}
+</style>
+</head>
+<body>
+<a href="/android/android.pdf" target="_blank" class="pdf-btn">📄 PDF</a>
+<a href="index.html" class="back-btn">← Back</a>
+<div class="button-container">
+    <div class="split-btn" id="row1">
+        <button class="half-btn left-btn" id="xmlBtn1">1 XML</button>
+        <button class="half-btn right-btn" id="javaBtn1">1 JAVA</button>
+    </div>
+    <div class="split-btn" id="row2">
+        <button class="half-btn left-btn" id="xmlBtn2">2 XML</button>
+        <button class="half-btn right-btn" id="javaBtn2">2 JAVA</button>
+    </div>
+    <div class="split-btn" id="row3">
+        <button class="half-btn left-btn" id="xmlBtn3">3 XML</button>
+        <button class="half-btn right-btn" id="javaBtn3">3 JAVA</button>
+    </div>
+    <div class="split-btn" id="row4">
+        <button class="half-btn left-btn" id="xmlBtn4">4 XML</button>
+        <button class="half-btn right-btn" id="javaBtn4">4 JAVA</button>
+    </div>
+    <div class="split-btn" id="row5">
+        <button class="half-btn left-btn" id="xmlBtn5">5 XML</button>
+        <button class="half-btn right-btn" id="javaBtn5">5 JAVA</button>
+    </div>
+    <div class="split-btn" id="row6">
+        <button class="half-btn left-btn" id="xmlBtn6">6 XML</button>
+        <button class="half-btn right-btn" id="javaBtn6">6 JAVA</button>
+    </div>
+    <div class="split-btn" id="row7">
+        <button class="half-btn left-btn" id="xmlBtn7">7 XML</button>
+        <button class="half-btn right-btn" id="javaBtn7">7 JAVA</button>
+    </div>
+    <div class="split-btn" id="row8">
+        <button class="half-btn left-btn" id="xmlBtn8">8 XML</button>
+        <button class="half-btn right-btn" id="javaBtn8">8 JAVA</button>
+    </div>
+    <div class="split-btn" id="row9">
+        <button class="half-btn left-btn" id="xmlBtn9">9 XML</button>
+        <button class="half-btn right-btn" id="javaBtn9">9 JAVA</button>
+    </div>
+    <div class="split-btn" id="row10">
+        <button class="half-btn left-btn" id="xmlBtn10">10 XML</button>
+        <button class="half-btn right-btn" id="javaBtn10">10 JAVA</button>
+    </div>
+    <div class="split-btn" id="row11">
+        <button class="half-btn left-btn" id="xmlBtn11">11 XML</button>
+        <button class="half-btn right-btn" id="javaBtn11">11 JAVA</button>
+    </div>
+    <div class="split-btn" id="row12">
+        <button class="half-btn left-btn" id="xmlBtn12">12 XML</button>
+        <button class="half-btn right-btn" id="javaBtn12">12 JAVA</button>
+    </div>
+    <div class="split-btn" id="row13">
+        <button class="half-btn left-btn" id="xmlBtn13">13 XML</button>
+        <button class="half-btn right-btn" id="javaBtn13">13 JAVA</button>
+    </div>
+    <div class="split-btn" id="row14">
+        <button class="half-btn left-btn" id="xmlBtn14">14 XML</button>
+        <button class="half-btn right-btn" id="javaBtn14">14 JAVA</button>
+    </div>
+    <div class="split-btn" id="row15">
+        <button class="half-btn left-btn" id="xmlBtn15">15 XML</button>
+        <button class="half-btn right-btn" id="javaBtn15">15 JAVA</button>
+    </div>
+</div>
+
+<div class="hover-content" id="hoverContent1"><p><strong>1.GET IP ADDRESS OF A DEVICE</strong></p></div>
+<div class="hover-content" id="hoverContent2"><p><strong>2.ALERTBOX</strong></p></div>
+<div class="hover-content" id="hoverContent3"><p><strong>3.ACTIVITY PROGRAM</strong></p></div>
+<div class="hover-content" id="hoverContent4"><p><strong>4.SPINNER VIEW</strong></p></div>
+<div class="hover-content" id="hoverContent5"><p><strong>5.OPTION MENU</strong></p></div>
+<div class="hover-content" id="hoverContent6"><p><strong>6.LIST VIEW</strong></p></div>
+<div class="hover-content" id="hoverContent7"><p><strong>7.RADIOBUTTON</strong></p></div>
+<div class="hover-content" id="hoverContent8"><p><strong>8.IMAGE LOAD</strong></p></div>
+<div class="hover-content" id="hoverContent9"><p><strong>9.EDIT TEXT TO TEXT VIEW</strong></p></div>
+<div class="hover-content" id="hoverContent10"><p><strong>10.BG IMAGE</strong></p></div>
+<div class="hover-content" id="hoverContent11"><p><strong>11.ADDITION</strong></p></div>
+<div class="hover-content" id="hoverContent12"><p><strong>12.CHECK BOX</strong></p></div>
+<div class="hover-content" id="hoverContent13"><p><strong>13.Write a program to display multiplication table of a given number</strong></p></div>
+<div class="hover-content" id="hoverContent14"><p><strong>14.Write a program to Change the Background colour of the Activity.</strong></p></div>
+<div class="hover-content" id="hoverContent15"><p><strong>15.TOAST</strong></p></div>
+
+<!-- JAVA CODE DATA -->
+<textarea hidden id="javaCode1">package com.arioninfotech.getipaddressexample;
+import androidx.appcompat.app.AppCompatActivity;
+import android.net.wifi.WifiManager;
+import android.os.Bundle;
+import android.text.format.Formatter;
+import android.widget.TextView;
+public class MainActivity extends AppCompatActivity {
+ TextView lblIPAddress;
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+ lblIPAddress = findViewById(R.id.lblIPAddress);
+WifiManager wifiManager = (WifiManager)
+getApplicationContext().getSystemService(WIFI_SERVICE);
+ String ipAddress =
+Formatter.formatIpAddress(wifiManager.getConnectionInfo().getIpAddress());
+ lblIPAddress.setText("Your Device IP Address: " + ipAddress);
+ }}
+<?xml version="1.0" encoding="UTF-8"?>
+-<androidx.constraintlayout.widget.ConstraintLayout tools:context=".MainActivity"
+android:layout_height="match_parent"
+android:layout_width="match_parent"
+xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/resauto"
+xmlns:android="http://schemas.android.com/apk/res/android">
+<TextView android:layout_height="wrap_content"
+android:layout_width="0dp"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintBottom_toBottomOf="parent"
+android:textSize="18sp"
+android:textColor="@color/colorAccent"
+android:text="TextView" android:layout_marginBottom="474dp"
+android:layout_marginRight="20dp"
+android:layout_marginEnd="20dp"
+android:layout_marginTop="174dp"
+android:layout_marginLeft="16dp"
+android:layout_marginStart="16dp"
+android:id="@+id/lblIPAddress"/>
+</androidx.constraintlayout.widget.ConstraintLayout></textarea>
+<textarea hidden id="javaCode2">package com.arioninfotech.alertboxexample;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+public class MainActivity extends AppCompatActivity {
+ Button btnAlert;
+ AlertDialog.Builder alertDialogBuilder ;
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+ btnAlert=findViewById(R.id.btnAlert);
+ alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+ btnAlert.setOnClickListener(new View.OnClickListener() {
+ @Override
+ public void onClick(View view) {
+ // set title
+ alertDialogBuilder.setTitle("Confirmation Alert");
+ // set dialog message
+ alertDialogBuilder
+ .setMessage("Are you sure want to exit ? ")
+ .setCancelable(false)
+ .setPositiveButton("OK",new DialogInterface.OnClickListener() {
+ public void onClick(DialogInterface dialog, int id) {
+ // if this button is clicked, close
+ // current activit
+MainActivity.this.finish();
+ }
+ })
+ .setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+ public void onClick(DialogInterface dialog,int id) {
+ // if this button is clicked, just close
+ // the dialog box and do nothing
+ dialog.cancel();
+ }
+ });
+ // create alert dialog
+ AlertDialog alertDialog = alertDialogBuilder.create();
+ // show it
+ alertDialog.show();
+ }
+ }); }}</textarea>
+<textarea hidden id="javaCode3">main activity.java
+package com.arioninfotech.intentexample;
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+public class MainActivity extends AppCompatActivity {
+ Button btnNext;
+@Override
+ protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+ btnNext=findViewById(R.id.btnNext);
+ btnNext.setOnClickListener(new View.OnClickListener() {
+ @Override
+ public void onClick(View view) {
+ Intent intent=new Intent(getApplicationContext(),
+ SecondActivity.class);
+ startActivity(intent);
+ }
+ });
+ } }
+
+second activity .java
+package com.arioninfotech.intentexample;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+public class SecondActivity extends AppCompatActivity {
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_second);
+ }
+}</textarea>
+<textarea hidden id="javaCode4">package com.example.spinnerexample;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import android.widget.Toast;
+public class MainActivity extends AppCompatActivity {
+ Spinner cmbSpinner;
+ String[] languageNames={"Android","Java","Python","Angular"};
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+ cmbSpinner=findViewById(R.id.cmbSpinner);
+ ArrayAdapter aa=new ArrayAdapter(this,
+android.R.layout.simple_spinner_item,languageNames);
+ aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+ cmbSpinner.setAdapter(aa);
+ cmbSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+ @Override
+ public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+ Toast.makeText(getApplicationContext(),languageNames[i],Toast.LENGTH_LONG ).show();
+ }
+ @Override
+ public void onNothingSelected(AdapterView<?> adapterView) {
+ }
+ });
+ } }</textarea>
+<textarea hidden id="javaCode5">package com.arioninfotech.optionmenuexample;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
+public class MainActivity extends AppCompatActivity {
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+ }
+ @Override
+ public boolean onCreateOptionsMenu(Menu menu) {
+ // Inflate the menu; this adds items to the action bar if it is present.
+ getMenuInflater().inflate(R.menu.menu_file, menu);
+ return true;
+ }
+ @Override
+ public boolean onOptionsItemSelected(MenuItem item) {
+ int id = item.getItemId();
+ switch (id){
+ case R.id.item1:
+ Toast.makeText(getApplicationContext(),"Item 1 Selected",Toast.LENGTH_LONG).show();
+ return true;
+ case R.id.item2:
+ Toast.makeText(getApplicationContext(),"Item 2 Selected",Toast.LENGTH_LONG).show();
+ return true;
+ case R.id.item3:
+Toast.makeText(getApplicationContext(),"Item 3 Selected",Toast.LENGTH_LONG).show();
+ return true;
+ default:
+ return super.onOptionsItemSelected(item);
+ }
+ }
+}</textarea>
+<textarea hidden id="javaCode6">package com.arioninfotech.listviewexample;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+public class MainActivity extends AppCompatActivity {
+ String[] countries = {"India","Pakistan","Afganistan","Bangladesh","China"};
+ ListView lstCountries;
+@Override
+ protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+ lstCountries=findViewById(R.id.lstCountries);
+ ArrayAdapter adapter = new ArrayAdapter<String>(this,
+ android.R.layout.simple_list_item_1, countries);
+ lstCountries.setAdapter(adapter); }}</textarea>
+<textarea hidden id="javaCode7">package com.arioninfotech.radiobuttonexample;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+public class MainActivity extends AppCompatActivity {
+ RadioGroup radioGroup;
+RadioButton gender;
+ TextView txtSelectedGender;
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+ radioGroup=(RadioGroup) findViewById(R.id.radioGroup);
+ txtSelectedGender=(TextView)findViewById(R.id.txtSelectedGender);
+ radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+ @Override
+ public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
+ gender = radioGroup.findViewById(checkedId);
+ txtSelectedGender.setText("Selected Gender :"+gender.getText().toString());
+ }
+ });
+ }
+}</textarea>
+<textarea hidden id="javaCode8">package com.example.imageexample;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+public class MainActivity extends AppCompatActivity {
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+ }
+}</textarea>
+<textarea hidden id="javaCode9">package com.example.edittextdatadisplay;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+public class MainActivity extends AppCompatActivity {
+EditText txtData;
+TextView lblData;
+Button btnView;
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+ txtData=findViewById(R.id.txtData);
+ lblData=findViewById(R.id.lblData);
+ btnView=findViewById(R.id.btnView);
+ btnView.setOnClickListener(new View.OnClickListener() {
+ @Override
+ public void onClick(View view) {
+ lblData.setText(txtData.getText());
+ }
+ });
+ }
+}</textarea>
+<textarea hidden id="javaCode10">package com.example.backgroundimageexample;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+public class MainActivity extends AppCompatActivity {
+ConstraintLayout constraintLayout;
+Button btnChange;
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+ constraintLayout=findViewById(R.id.constraintLayout);
+ btnChange=findViewById(R.id.btnChange);
+ btnChange.setOnClickListener(new View.OnClickListener() {
+ @Override
+ public void onClick(View view) {
+
+constraintLayout.setBackgroundResource(R.drawable.download);
+ }
+ });
+ }
+}</textarea>
+<textarea hidden id="javaCode11">package com.example.addition;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+public class MainActivity extends AppCompatActivity {
+EditText txtnumber1,txtnumber2,txtresult;
+Button btnsum;
+double a,b,c;
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+ txtnumber1=findViewById(R.id.txtnumber1);
+ txtnumber2=findViewById(R.id.txtnumber2);
+ txtresult=findViewById(R.id.txtresult);
+ btnsum=findViewById(R.id.btnsum);
+ btnsum=(Button) findViewById(R.id.btnsum);
+ btnsum.setOnClickListener(new View.OnClickListener() {
+ @Override
+ public void onClick(View view) {
+ a=Double.parseDouble(txtnumber1.getText().toString());
+ b=Double.parseDouble(txtnumber2.getText().toString());
+ c=a+b;
+ txtresult.setText(Double.toString(c));
+ }
+ });
+ }
+}</textarea>
+<textarea hidden id="javaCode12">package com.example.checkbox;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.Toast;
+public class MainActivity extends AppCompatActivity {
+ CheckBox chkAndroid,chkJava,chkPython;
+ Button btnShow;
+ StringBuffer result;
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+ chkAndroid=findViewById(R.id.chkAndroid);
+ chkJava=findViewById(R.id.chkJava);
+ chkPython=findViewById(R.id.chkPython);
+ btnShow=findViewById(R.id.btnShow);
+ btnShow.setOnClickListener(new View.OnClickListener() {
+ @Override
+ public void onClick(View view) {
+ result=new StringBuffer();
+ if (chkAndroid.isChecked()) {
+ result.append(chkAndroid.getText() + " ");
+ }
+ if (chkJava.isChecked()){
+ result.append(chkJava.getText());
+ }
+ if (chkPython.isChecked()){
+ result.append(chkPython.getText());
+ }
+ Toast.makeText(getApplicationContext(),
+ "Checked Languages:"+result.toString(),
+ Toast.LENGTH_LONG).show();
+ }
+ });
+ }
+}</textarea>
+<textarea hidden id="javaCode13">package com.arioninfotech.multiplicationtableexample;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+public class MainActivity extends AppCompatActivity {
+ EditText txtNumber;
+ TextView lblResult;
+ Button btnShow;
+ int number=0,answer=0;
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+ txtNumber=findViewById(R.id.txtNumber);
+lblResult=findViewById(R.id.lblResult);
+ btnShow=findViewById(R.id.btnShow);
+ btnShow.setOnClickListener(new View.OnClickListener() {
+ @Override
+ public void onClick(View view) {
+ if(txtNumber.getText().toString().isEmpty()){
+ Toast.makeText(getApplicationContext(),"Please
+enter a number",Toast.LENGTH_LONG).show();
+ }else{
+ StringBuffer buffer = new StringBuffer();
+
+number=Integer.parseInt(txtNumber.getText().toString().trim());
+ // build the logic for table
+for (int i = 1; i <= 10; i++) {
+ answer = (i * number);
+buffer.append(number + " X " + i
+ + " = " + answer + "\n\n");
+ }
+ // set the buffer textview
+lblResult.setText(buffer);
+ }
+ }
+ });
+ }
+}</textarea>
+<textarea hidden id="javaCode14">package com.example.backgroundcolorexample;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+public class MainActivity extends AppCompatActivity {
+ConstraintLayout constraintLayout;
+Button btnChange;
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+ constraintLayout=findViewById(R.id.constraintLayout);
+ btnChange=findViewById(R.id.btnChange);
+ btnChange.setOnClickListener(new OnClickListener() {
+ @Override
+ public void onClick(View view) {
+ constraintLayout.setBackgroundColor(Color.RED);
+ }
+ });
+ }
+}</textarea>
+<textarea hidden id="javaCode15">package com.arioninfotech.toastexample;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+public class MainActivity extends AppCompatActivity {
+ Button btnToast;
+ @Override
+ protected void onCreate(Bundle savedInstanceState) {
+ super.onCreate(savedInstanceState);
+ setContentView(R.layout.activity_main);
+ btnToast=(Button)findViewById(R.id.button);
+ btnToast.setOnClickListener(new View.OnClickListener() {
+ @Override
+ public void onClick(View view) {
+ Toast.makeText(getApplicationContext(),
+ "Arion Infotech , KINFRA IT PARK",
+Toast.LENGTH_LONG).show();
+ }
+ });
+ }
+}</textarea>
+
+<!-- XML CODE DATA -->
+<textarea hidden id="xmlCode1"><?xml version="1.0" encoding="UTF-8"?>-<manifest
+package="com.arioninfotech.getipaddressexample"
+xmlns:android="http://schemas.android.com/apk/res/android">
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+-<application android:theme="@style/AppTheme" android:supportsRtl="true"
+android:roundIcon="@mipmap/ic_launcher_round" android:label="@string/app_name"
+android:icon="@mipmap/ic_launcher" android:allowBackup="true">
+-<activity android:name=".MainActivity">
+-<intent-filter>
+<action android:name="android.intent.action.MAIN"/>
+<category android:name="android.intent.category.LAUNCHER"/>
+</intent-filter>
+</activity>
+</application>
+</manifest></textarea>
+<textarea hidden id="xmlCode2"><?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+package="com.arioninfotech.alertboxexample">
+<application
+android:allowBackup="true"
+android:label="@string/app_name"
+android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+<activity android:name=".MainActivity">
+<intent-filter>
+<action android:name="android.intent.action.MAIN" />
+<category android:name="android.intent.category.LAUNCHER" />
+</intent-filter>
+</activity>
+</application>
+</manifest></textarea>
+<textarea hidden id="xmlCode3"><?xml version="1.0" encoding="UTF-8"?>
+-<androidx.constraintlayout.widget.ConstraintLayout tools:context=".MainActivity"
+android:layout_height="match_parent"
+android:layout_width="match_parent" xmlns:tools="http://schemas.android.com/tools" 
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:android="http://schemas.android.com/apk/res/android">
+<Button android:layout_height="48dp"
+android:layout_width="349dp"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintBottom_toBottomOf="parent"
+android:text="Next " android:id="@+id/btnNext"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+<?xml version="1.0" encoding="UTF-8"?>
+-<androidx.constraintlayout.widget.ConstraintLayout tools:context=".SecondActivity"
+android:layout_height="match_parent" android:layout_width="match_parent"
+xmlns:tools="http://schemas.android.com/tools"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:android="http://schemas.android.com/apk/res/android">
+<TextView android:layout_height="61dp"
+android:layout_width="321dp"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintBottom_toBottomOf="parent"
+android:textSize="36sp" android:textColor="#FC1717"
+android:text="Second Activity"
+android:layout_marginRight="40dp"
+android:layout_marginEnd="40dp"
+android:layout_marginLeft="50dp"
+android:layout_marginStart="50dp"
+android:id="@+id/textView2"/>
+</androidx.constraintlayout.widget.ConstraintLayout></textarea>
+<textarea hidden id="xmlCode4"><?xml version="1.0" encoding="UTF-8"?>
+-<androidx.constraintlayout.widget.ConstraintLayout tools:context=".SecondActivity"
+android:layout_height="match_parent"
+android:layout_width="match_parent"
+xmlns:tools="http://schemas.android.com/tools"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:android="http://schemas.android.com/apk/res/android">
+<TextView android:layout_height="61dp"
+android:layout_width="321dp"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintBottom_toBottomOf="parent"
+android:textSize="36sp" android:textColor="#FC1717" a
+ndroid:text="Second Activity"
+android:layout_marginRight="40dp"
+android:layout_marginEnd="40dp"
+android:layout_marginLeft="50dp"
+android:layout_marginStart="50dp"
+android:id="@+id/textView2"/>
+</androidx.constraintlayout.widget.ConstraintLayout></textarea>
+<textarea hidden id="xmlCode5">//xml main1
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+ xmlns:app="http://schemas.android.com/apk/res-auto"
+ xmlns:tools="http://schemas.android.com/tools"
+ android:layout_width="match_parent"
+ android:layout_height="match_parent"
+ tools:context=".MainActivity"/>
+//xml 2
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+ xmlns:android="http://schemas.android.com/apk/res/android">
+ <item
+ android:id="@+id/item1"
+ android:title="menuItem1" />
+ <item
+ android:id="@+id/item2"
+ android:title="menuItem2" />
+ <item
+ android:id="@+id/item3"
+ android:title="menuItem3" />
+</menu></textarea>
+<textarea hidden id="xmlCode6"><?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+ xmlns:app="http://schemas.android.com/apk/res-auto"
+ xmlns:tools="http://schemas.android.com/tools"
+ android:layout_width="match_parent"
+ android:layout_height="match_parent"
+ tools:context=".MainActivity">
+ <ListView
+ android:id="@+id/lstCountries"
+ android:layout_width="0dp"
+ android:layout_height="674dp"
+ android:layout_marginStart="31dp"
+ android:layout_marginTop="24dp"
+ android:layout_marginEnd="25dp"
+ android:layout_marginBottom="33dp"
+ app:layout_constraintBottom_toBottomOf="parent"
+ app:layout_constraintEnd_toEndOf="parent"
+ app:layout_constraintStart_toStartOf="parent"
+ app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout></textarea>
+<textarea hidden id="xmlCode7"><?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+ xmlns:app="http://schemas.android.com/apk/res-auto"
+ xmlns:tools="http://schemas.android.com/tools"
+ android:layout_width="match_parent"
+ android:layout_height="match_parent"
+ tools:context=".MainActivity">
+ <RadioGroup
+ android:id="@+id/radioGroup"
+ android:layout_width="356dp"
+ android:layout_height="96dp"
+ android:layout_marginStart="23dp"
+ android:layout_marginTop="100dp"
+ android:layout_marginEnd="32dp"
+ app:layout_constraintEnd_toEndOf="parent"
+ app:layout_constraintStart_toStartOf="parent"
+ app:layout_constraintTop_toTopOf="parent">
+ <RadioButton
+ android:id="@+id/radioMale"
+ android:layout_width="match_parent"
+ android:layout_height="wrap_content"
+android:text="male"
+ tools:text="Male" />
+ <RadioButton
+ android:id="@+id/radioFemale"
+ android:layout_width="match_parent"
+ android:layout_height="wrap_content"
+ android:text="Female" />
+ </RadioGroup>
+ <EditText
+ android:id="@+id/txtSelectedGender"
+ android:layout_width="351dp"
+ android:layout_height="103dp"
+ android:layout_marginBottom="228dp"
+ android:ems="10"
+ android:inputType="textPersonName"
+ android:text=""
+ app:layout_constraintBottom_toBottomOf="parent"
+ app:layout_constraintEnd_toEndOf="@+id/radioGroup"
+ app:layout_constraintHorizontal_bias="0.0"
+ app:layout_constraintStart_toStartOf="@+id/radioGroup" />
+</androidx.constraintlayout.widget.ConstraintLayout></textarea>
+<textarea hidden id="xmlCode8"><?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+ xmlns:app="http://schemas.android.com/apk/res-auto"
+ xmlns:tools="http://schemas.android.com/tools"
+ android:layout_width="match_parent"
+ android:layout_height="match_parent"
+ tools:context=".MainActivity">
+ <ImageView
+ android:id="@+id/imageView"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:layout_marginStart="53dp"
+ android:layout_marginEnd="74dp"
+ app:layout_constraintBottom_toBottomOf="parent"
+ app:layout_constraintEnd_toEndOf="parent"
+ app:layout_constraintStart_toStartOf="parent"
+ app:layout_constraintTop_toTopOf="parent"
+ app:srcCompat="@drawable/flower" />
+</androidx.constraintlayout.widget.ConstraintLayout></textarea>
+<textarea hidden id="xmlCode9"><?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+ xmlns:app="http://schemas.android.com/apk/res-auto"
+ xmlns:tools="http://schemas.android.com/tools"
+ android:layout_width="match_parent"
+ android:layout_height="match_parent"
+ tools:context=".MainActivity">
+ <EditText
+ android:id="@+id/txtData"
+ android:layout_width="302dp"
+ android:layout_height="53dp"
+ android:layout_marginStart="28dp"
+ android:layout_marginTop="161dp"
+ android:layout_marginEnd="81dp"
+ android:ems="10"
+ android:hint="Enter Data"
+ android:inputType="textPersonName"
+ app:layout_constraintEnd_toEndOf="parent"
+ app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent" />
+ <Button
+ android:id="@+id/btnView"
+ android:layout_width="290dp"
+ android:layout_height="73dp"
+ android:layout_marginTop="83dp"
+ android:text="view"
+ app:layout_constraintEnd_toEndOf="@+id/txtData"
+ app:layout_constraintStart_toStartOf="@+id/txtData"
+ app:layout_constraintTop_toBottomOf="@+id/txtData" />
+ <TextView
+ android:id="@+id/lblData"
+ android:layout_width="284dp"
+ android:layout_height="171dp"
+ android:layout_marginTop="43dp"
+ app:layout_constraintEnd_toEndOf="@+id/btnView"
+ app:layout_constraintStart_toStartOf="@+id/btnView"
+ app:layout_constraintTop_toBottomOf="@+id/btnView" />
+</androidx.constraintlayout.widget.ConstraintLayout></textarea>
+<textarea hidden id="xmlCode10"><?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+ xmlns:app="http://schemas.android.com/apk/res-auto"
+ xmlns:tools="http://schemas.android.com/tools"
+ android:id="@+id/constraintLayout"
+ android:layout_width="match_parent"
+ android:layout_height="match_parent"
+ android:background="@drawable/sun"
+ tools:context=".MainActivity">
+ <Button
+ android:id="@+id/btnChange"
+ android:layout_width="278dp"
+ android:layout_height="69dp"
+ android:text="changeBackground"
+ app:layout_constraintBottom_toBottomOf="parent"
+ app:layout_constraintEnd_toEndOf="parent"
+ app:layout_constraintHorizontal_bias="0.496"
+ app:layout_constraintStart_toStartOf="parent"
+ app:layout_constraintTop_toTopOf="parent"
+ app:layout_constraintVertical_bias="0.835" />
+</androidx.constraintlayout.widget.ConstraintLayout></textarea>
+<textarea hidden id="xmlCode11"><?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+ xmlns:app="http://schemas.android.com/apk/res-auto"
+ xmlns:tools="http://schemas.android.com/tools"
+ android:layout_width="match_parent"
+ android:layout_height="match_parent"
+ tools:context=".MainActivity">
+ <EditText
+ android:id="@+id/txtnumber1"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:layout_marginTop="44dp"
+ android:ems="10"
+ android:inputType="textPersonName"
+ app:layout_constraintEnd_toEndOf="parent"
+ app:layout_constraintHorizontal_bias="0.447"
+ app:layout_constraintStart_toStartOf="parent"
+ app:layout_constraintTop_toTopOf="parent" />
+ <EditText
+ android:id="@+id/txtnumber2"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:layout_marginTop="116dp"
+ android:ems="10"
+ android:inputType="textPersonName"
+ app:layout_constraintEnd_toEndOf="@+id/txtnumber1"
+ app:layout_constraintHorizontal_bias="0.0"
+ app:layout_constraintStart_toStartOf="@+id/txtnumber1"
+ app:layout_constraintTop_toBottomOf="@+id/txtnumber1" />
+ <EditText
+ android:id="@+id/txtresult"
+ android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+ android:layout_marginTop="136dp"
+ android:ems="10"
+ android:inputType="textPersonName"
+ app:layout_constraintEnd_toEndOf="@+id/txtnumber2"
+ app:layout_constraintHorizontal_bias="1.0"
+ app:layout_constraintStart_toStartOf="@+id/txtnumber2"
+ app:layout_constraintTop_toBottomOf="@+id/txtnumber2" />
+ <Button
+ android:id="@+id/btnsum"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:layout_marginTop="68dp"
+ app:layout_constraintBottom_toBottomOf="parent"
+ app:layout_constraintEnd_toEndOf="@+id/txtresult"
+ app:layout_constraintStart_toStartOf="@+id/txtresult"
+ app:layout_constraintTop_toBottomOf="@+id/txtresult" />
+</androidx.constraintlayout.widget.ConstraintLayout></textarea>
+<textarea hidden id="xmlCode12"><?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+ xmlns:app="http://schemas.android.com/apk/res-auto"
+ xmlns:tools="http://schemas.android.com/tools"
+ android:layout_width="match_parent"
+ android:layout_height="match_parent"
+ tools:context=".MainActivity">
+ <CheckBox
+ android:id="@+id/chkAndroid"
+ android:layout_width="330dp"
+ android:layout_height="72dp"
+ android:layout_marginStart="27dp"
+ android:layout_marginTop="123dp"
+ android:layout_marginEnd="54dp"
+android:text="Android"
+ app:layout_constraintEnd_toEndOf="parent"
+ app:layout_constraintStart_toStartOf="parent"
+ app:layout_constraintTop_toTopOf="parent" />
+ <CheckBox
+ android:id="@+id/chkJava"
+ android:layout_width="306dp"
+ android:layout_height="74dp"
+ android:layout_marginTop="62dp"
+ android:text="Java"
+ app:layout_constraintEnd_toEndOf="@+id/chkAndroid"
+ app:layout_constraintStart_toStartOf="@+id/chkAndroid"
+ app:layout_constraintTop_toBottomOf="@+id/chkAndroid" />
+ <CheckBox
+ android:id="@+id/chkPython"
+ android:layout_width="298dp"
+ android:layout_height="57dp"
+ android:layout_marginTop="54dp"
+ android:text="Python"
+ app:layout_constraintEnd_toEndOf="@+id/chkJava"
+ app:layout_constraintStart_toStartOf="@+id/chkJava"
+ app:layout_constraintTop_toBottomOf="@+id/chkJava" />
+ <Button
+ android:id="@+id/btnShow"
+ android:layout_width="219dp"
+ android:layout_height="67dp"
+ android:layout_marginTop="26dp"
+ android:text="SHOW"
+ app:layout_constraintEnd_toEndOf="@+id/chkPython"
+ app:layout_constraintStart_toStartOf="@+id/chkPython"
+ app:layout_constraintTop_toBottomOf="@+id/chkPython" />
+</androidx.constraintlayout.widget.ConstraintLayout></textarea>
+<textarea hidden id="xmlCode13"><?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+ xmlns:app="http://schemas.android.com/apk/res-auto"
+ xmlns:tools="http://schemas.android.com/tools"
+ android:layout_width="match_parent"
+ android:layout_height="match_parent"
+ tools:context=".MainActivity">
+ <EditText
+ android:id="@+id/txtNumber"
+ android:layout_width="244dp"
+ android:layout_height="61dp"
+ android:layout_marginStart="16dp"
+ android:layout_marginTop="77dp"
+ android:ems="10"
+ android:hint="number"
+ android:inputType="textPersonName"
+ app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintTop_toTopOf="parent" />
+ <Button
+ android:id="@+id/btnShow"
+ android:layout_width="wrap_content"
+ android:layout_height="wrap_content"
+ android:layout_marginTop="85dp"
+ android:layout_marginEnd="31dp"
+ android:text="Show"
+ app:layout_constraintEnd_toEndOf="parent"
+ app:layout_constraintTop_toTopOf="parent" />
+ <TextView
+ android:id="@+id/txtResult"
+ android:layout_width="392dp"
+ android:layout_height="358dp"
+ android:layout_marginTop="64dp"
+ app:layout_constraintEnd_toEndOf="@+id/btnShow"
+ app:layout_constraintHorizontal_bias="0.439"
+ app:layout_constraintStart_toStartOf="@+id/txtNumber"
+ app:layout_constraintTop_toBottomOf="@+id/txtNumber" />
+</androidx.constraintlayout.widget.ConstraintLayout></textarea>
+<textarea hidden id="xmlCode14"><?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+ xmlns:app="http://schemas.android.com/apk/res-auto"
+ xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/constraintLayout"
+ android:layout_width="match_parent"
+ android:layout_height="match_parent"
+ tools:context=".MainActivity">
+ <Button
+ android:id="@+id/btnChange"
+ android:layout_width="259dp"
+ android:layout_height="64dp"
+ android:text="Change BackgroundColor"
+ tools:layout_editor_absoluteX="80dp"
+ tools:layout_editor_absoluteY="511dp" />
+</androidx.constraintlayout.widget.ConstraintLayout></textarea>
+<textarea hidden id="xmlCode15"><?xml version="1.0" encoding="UTF-8"?>
+-<androidx.constraintlayout.widget.ConstraintLayout tools:context=".MainActivity"
+android:layout_height="match_parent" android:layout_width="match_parent"
+xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/resauto" xmlns:android="http://schemas.android.com/apk/res/android">
+<Button android:layout_height="58dp" android:layout_width="347dp"
+app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+android:text="Show Toast" android:layout_marginBottom="391dp"
+android:layout_marginRight="32dp" android:layout_marginEnd="32dp"
+android:layout_marginTop="282dp" android:layout_marginLeft="32dp"
+android:layout_marginStart="32dp" android:id="@+id/button"/>
+</androidx.constraintlayout.widget.ConstraintLayout></textarea>
+
+<script>
+const TOTAL_ITEMS = 15;
+const hideTimers = {};
+const popupCopyType = {};
+
+function getCode(kind, id) {
+    const el = document.getElementById(kind + "Code" + id);
+    return el ? el.value : "";
+}
+
+function showPopup(id) {
+    const row = document.getElementById("row" + id);
+    const popup = document.getElementById("hoverContent" + id);
+    if (!row || !popup) return;
+    clearTimeout(hideTimers[id]);
+    popup.style.display = "block";
+    positionPopup(id);
+}
+
+function positionPopup(id) {
+    const row = document.getElementById("row" + id);
+    const popup = document.getElementById("hoverContent" + id);
+    if (!row || !popup) return;
+    const rect = row.getBoundingClientRect();
+    popup.style.left = (rect.right + 12) + "px";
+    popup.style.top = rect.top + "px";
+    const popupRect = popup.getBoundingClientRect();
+    if (popupRect.right > window.innerWidth - 8) {
+        popup.style.left = Math.max(8, rect.left - popupRect.width - 12) + "px";
+    }
+    const maxTop = window.innerHeight - popupRect.height - 8;
+    popup.style.top = Math.max(8, Math.min(rect.top, maxTop)) + "px";
+}
+
+function hidePopup(id) {
+    const popup = document.getElementById("hoverContent" + id);
+    if (!popup) return;
+    popup.style.display = "none";
+}
+
+function scheduleHide(id) {
+    clearTimeout(hideTimers[id]);
+    hideTimers[id] = setTimeout(function () {
+        const popup = document.getElementById("hoverContent" + id);
+        if (!popup || popup.matches(":hover")) return;
+        hidePopup(id);
+    }, 120);
+}
+
+function fallbackCopy(text) {
+    const temp = document.createElement("textarea");
+    temp.value = text;
+    temp.setAttribute("readonly", "");
+    temp.style.position = "fixed";
+    temp.style.left = "-9999px";
+    document.body.appendChild(temp);
+    temp.focus();
+    temp.select();
+    document.execCommand("copy");
+    document.body.removeChild(temp);
+}
+
+async function copyText(text) {
+    if (!text) return;
+    try {
+        if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(text);
+        } else {
+            fallbackCopy(text);
+        }
+    } catch (e) {
+        fallbackCopy(text);
+    }
+}
+
+async function copyJava(id) {
+    await copyText(getCode("java", id));
+    const btn = document.getElementById("javaBtn" + id);
+    if (btn) btn.classList.add("copied");
+}
+
+async function copyXml(id) {
+    await copyText(getCode("xml", id));
+    const btn = document.getElementById("xmlBtn" + id);
+    if (btn) btn.classList.add("copied");
+}
+
+for (let i = 1; i <= TOTAL_ITEMS; i++) {
+    const row = document.getElementById("row" + i);
+    const popup = document.getElementById("hoverContent" + i);
+    const xmlBtn = document.getElementById("xmlBtn" + i);
+    const javaBtn = document.getElementById("javaBtn" + i);
+    if (!row || !popup || !xmlBtn || !javaBtn) continue;
+
+    xmlBtn.addEventListener("mouseenter", function () {
+        popupCopyType[i] = "xml";
+        showPopup(i);
+    });
+    xmlBtn.addEventListener("mouseleave", function () {
+        scheduleHide(i);
+    });
+    javaBtn.addEventListener("mouseenter", function () {
+        popupCopyType[i] = "java";
+        showPopup(i);
+    });
+    javaBtn.addEventListener("mouseleave", function () {
+        scheduleHide(i);
+    });
+
+    xmlBtn.addEventListener("click", function (event) {
+        event.stopPropagation();
+        popupCopyType[i] = "xml";
+        copyXml(i);
+    });
+    javaBtn.addEventListener("click", function (event) {
+        event.stopPropagation();
+        popupCopyType[i] = "java";
+        copyJava(i);
+    });
+
+    popup.addEventListener("mouseenter", function () {
+        clearTimeout(hideTimers[i]);
+    });
+    popup.addEventListener("mouseleave", function () {
+        hidePopup(i);
+    });
+    popup.addEventListener("click", function () {
+        if (popupCopyType[i] === "xml") {
+            copyXml(i);
+        } else {
+            copyJava(i);
+        }
+    });
+}
+
+window.addEventListener("scroll", function () {
+    for (let i = 1; i <= TOTAL_ITEMS; i++) {
+        const popup = document.getElementById("hoverContent" + i);
+        if (popup && popup.style.display === "block") {
+            positionPopup(i);
+        }
+    }
+});
+
+window.addEventListener("resize", function () {
+    for (let i = 1; i <= TOTAL_ITEMS; i++) {
+        const popup = document.getElementById("hoverContent" + i);
+        if (popup && popup.style.display === "block") {
+            positionPopup(i);
+        }
+    }
+});
+</script>
+
+</body>
+</html>
